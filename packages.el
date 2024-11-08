@@ -66,3 +66,4 @@
 (package! groovy-mode)
 (package! jinja2-mode)
 (package! nextflow-mode :recipe (:host github :repo "emiller88/nextflow-mode"))
+(package! sqlite3) ;; I think magit/forge needs this.

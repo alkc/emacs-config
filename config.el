@@ -147,3 +147,6 @@
 (use-package! nextflow-mode
   :config
   (set-docsets! 'nextflow-mode "Groovy"))
+
+(use-package forge
+  :after magit)
