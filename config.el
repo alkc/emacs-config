@@ -150,3 +150,5 @@
 
 (use-package forge
   :after magit)
+
+(setq auth-sources '("~/.authinfo.gpg"))
