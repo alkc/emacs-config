@@ -85,7 +85,6 @@
       user-mail-address "alexander.koc@skane.se")
 
 
-
 ;; Setup central bkp dir:
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
@@ -111,7 +110,6 @@
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
          ("<f6>" . heaven-and-hell-toggle-theme)))
 
-
 ;; add below line to init.el
 ;; (use-package! lsp-mode
 ;;   :config
@@ -127,7 +125,7 @@
 ;; (use-package! lsp
 ;;   :init
 ;;)
-;
+                                        ;
 ;; treemacs workaround thingie:
 (add-to-list 'image-types 'svg)
 
@@ -140,4 +138,12 @@
 (global-set-key (kbd "<select>") 'end-of-line)
 ;; (global-set-key "C-u" 'vundo)
 
+(global-set-key (kbd "C-<S-c>") 'comment-or-uncomment-region)
+
 (setq projectile-project-search-path '("~/projects/" ))
+(setopt display-fill-column-indicator-column 100)
+(add-hook 'python-mode #'display-fill-column-indicator-mode)
+
+(use-package! nextflow-mode
+  :config
+  (set-docsets! 'nextflow-mode "Groovy"))
