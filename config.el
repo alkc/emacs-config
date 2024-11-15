@@ -152,3 +152,7 @@
   :after magit)
 
 (setq auth-sources '("~/.authinfo.gpg"))
+
+(use-package keychain-environment
+  :config (keychain-refresh-environment))
+
