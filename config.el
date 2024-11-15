@@ -158,3 +158,6 @@
 
 (setq persp-emacsclient-init-frame-behaviour-override "main")
 
+;; Use the docker compose plugin instead!
+(eval-after-load 'docker-compose
+  '(setq docker-compose-command "docker compose"))
