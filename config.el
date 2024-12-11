@@ -161,3 +161,7 @@
 ;; Use the docker compose plugin instead!
 (eval-after-load 'docker-compose
   '(setq docker-compose-command "docker compose"))
+
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(nextflow-mode . ("java" "-jar" "/home/alkc/.local/bin/nextflow-language-server-all.jar"))))
