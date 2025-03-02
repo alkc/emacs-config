@@ -82,7 +82,7 @@
 (modify-syntax-entry  ?_ "w" (standard-syntax-table))
 
 (setq user-full-name "Alexander Koc"
-      user-mail-address "alexander.koc@skane.se")
+      user-mail-address "alkc@proton.me")
 
 
 ;; Setup central bkp dir:
@@ -110,24 +110,8 @@
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
          ("<f6>" . heaven-and-hell-toggle-theme)))
 
-;; add below line to init.el
-;; (use-package! lsp-mode
-;;   :config
-;;   (lsp-register-custom-settings
-;;    '(("pyls.plugins.pyls_mypy.enabled" t t)
-;;      ("pyls.plugins.pyls_mypy.live_mode" nil t)
-;;      ("pyls.plugins.pyls_black.enabled" t t)
-;;      ("pyls.plugins.pyls_isort.enabled" t t)
-;;      ))
-;;   :hook
-;;   ((python-mode . lsp)))
-
-;; (use-package! lsp
-;;   :init
-;;)
-                                        ;
 ;; treemacs workaround thingie:
-(add-to-list 'image-types 'svg)
+;; (add-to-list 'image-types 'svg)
 
 (setq confirm-kill-emacs nil)
 
@@ -148,8 +132,6 @@
   :config
   (set-docsets! 'nextflow-mode "Groovy"))
 
-(use-package forge
-  :after magit)
 
 (setq auth-sources '("~/.authinfo.gpg"))
 
