@@ -134,6 +134,7 @@
 
 
 (setq auth-sources '("~/.authinfo.gpg"))
+(setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
 
 (use-package keychain-environment
   :config (keychain-refresh-environment))
@@ -147,3 +148,5 @@
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
                '(nextflow-mode . ("java" "-jar" "/home/alkc/.local/bin/nextflow-language-server-all.jar"))))
+
+(use-package gptel)
