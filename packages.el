@@ -70,6 +70,7 @@
 (package! lsp-mode :recipe (:host github :repo "emacs-lsp/lsp-mode"))
 (package! forge)
 (package! nov)
+(package! gptel)
 
 (unless (package-installed-p 'vc-use-package)
   (package-vc-install "https://github.com/slotThe/vc-use-package"))
