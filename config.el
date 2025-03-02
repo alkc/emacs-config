@@ -194,3 +194,7 @@ and move point before the opening parenthesis."
     (backward-char 1)))
 
 (global-set-key (kbd "C #") 'wrap-region-or-word-with-parens-and-move-point)
+(global-set-key (kbd "C-ä") 'vundo)
+(global-set-key (kbd "C-ö") 'comment-dwim)
+(global-set-key (kbd "C-ö") 'comment-dwim)
+(global-set-key (kbd "C-\"") 'er/mark-word)
