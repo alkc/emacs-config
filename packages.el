@@ -68,6 +68,7 @@
 (package! sqlite3) ;; I think magit/forge needs this.
 (package! keychain-environment)
 (package! lsp-mode :recipe (:host github :repo "emacs-lsp/lsp-mode"))
+(package! gptel)
 
 (unless (package-installed-p 'vc-use-package)
   (package-vc-install "https://github.com/slotThe/vc-use-package"))
