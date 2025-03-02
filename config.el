@@ -82,7 +82,7 @@
 (modify-syntax-entry  ?_ "w" (standard-syntax-table))
 
 (setq user-full-name "Alexander Koc"
-      user-mail-address "alexander.koc@skane.se")
+      user-mail-address "alkc@proton.me")
 
 
 ;; Setup central bkp dir:
@@ -110,24 +110,8 @@
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
          ("<f6>" . heaven-and-hell-toggle-theme)))
 
-;; add below line to init.el
-;; (use-package! lsp-mode
-;;   :config
-;;   (lsp-register-custom-settings
-;;    '(("pyls.plugins.pyls_mypy.enabled" t t)
-;;      ("pyls.plugins.pyls_mypy.live_mode" nil t)
-;;      ("pyls.plugins.pyls_black.enabled" t t)
-;;      ("pyls.plugins.pyls_isort.enabled" t t)
-;;      ))
-;;   :hook
-;;   ((python-mode . lsp)))
-
-;; (use-package! lsp
-;;   :init
-;;)
-                                        ;
 ;; treemacs workaround thingie:
-(add-to-list 'image-types 'svg)
+;; (add-to-list 'image-types 'svg)
 
 (setq confirm-kill-emacs nil)
 
@@ -148,10 +132,9 @@
   :config
   (set-docsets! 'nextflow-mode "Groovy"))
 
-(use-package forge
-  :after magit)
 
 (setq auth-sources '("~/.authinfo.gpg"))
+(setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
 
 (use-package keychain-environment
   :config (keychain-refresh-environment))
@@ -167,36 +150,8 @@
                '(nextflow-mode . ("java" "-jar" "/home/alkc/.local/bin/nextflow-language-server-all.jar"))))
 
 
-(defun wrap-region-or-word-with-parens-and-move-point ()
-  "Wrap the selected region or the word at point in parentheses,
-and move point before the opening parenthesis."
-  (interactive)
-  (let (beg end)
-    (if (use-region-p)
-        ;; If a region is active, use its boundaries
-        (setq beg (region-beginning)
-              end (region-end))
-      ;; If no region is active, select the current word
-      (save-excursion
-        (let ((bounds (bounds-of-thing-at-point 'word)))
-          (unless bounds
-            (error "No word at point"))
-          (setq beg (car bounds)
-                end (cdr bounds)))))
-    ;; Insert parentheses around the region or word
-    (goto-char end)
-    (insert ")")
-    (goto-char beg)
-    (insert "(")
-    ;; Deactivate the region
-    (deactivate-mark)
-    ;; Move point before the opening parenthesis
-    (backward-char 1)))
-
 (require 'gptel)
 (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
-
-
 
 (global-set-key (kbd "C-ä") 'vundo)
 (global-set-key (kbd "C-ö") 'comment-dwim)
