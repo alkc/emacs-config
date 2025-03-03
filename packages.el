@@ -68,10 +68,6 @@
 (package! sqlite3) ;; I think magit/forge needs this.
 (package! keychain-environment)
 (package! lsp-mode :recipe (:host github :repo "emacs-lsp/lsp-mode"))
-(package! forge)
-(use-package forge
-  :after magit)
-
 (package! nov)
 (package! gptel)
 
