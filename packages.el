@@ -80,3 +80,5 @@
 (require 'vc-use-package)
 (use-package lsp-mode
   :vc (:fetcher github :repo "emacs-lsp/lsp-mode"))
+
+(package! obsidian)
