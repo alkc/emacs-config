@@ -150,3 +150,6 @@
                '(nextflow-mode . ("java" "-jar" "/home/alkc/.local/bin/nextflow-language-server-all.jar"))))
 
 (use-package gptel)
+
+(require 'nov)
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
