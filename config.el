@@ -148,9 +148,11 @@
 (require 'nov)
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
-(require 'gptel)
-(setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
 
 (global-set-key (kbd "C-ä") 'vundo)
 (global-set-key (kbd "C-ö") 'comment-dwim)
 (global-set-key (kbd "C-\"") 'er/mark-word)
+
+
+(require 'gptel)
+(setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
