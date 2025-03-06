@@ -115,15 +115,6 @@
 
 (setq confirm-kill-emacs nil)
 
-;; GAH
-(global-set-key (kbd "<select>") 'end-of-line)
-(define-key input-decode-map (kbd "<select>") (kbd "<end>"))
-
-(global-set-key (kbd "<select>") 'end-of-line)
-;; (global-set-key "C-u" 'vundo)
-
-(global-set-key (kbd "C-<S-c>") 'comment-or-uncomment-region)
-
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
 (add-hook 'python-mode #'display-fill-column-indicator-mode)
