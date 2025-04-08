@@ -143,6 +143,9 @@
 (global-set-key (kbd "C-ä") 'vundo)
 (global-set-key (kbd "C-ö") 'comment-dwim)
 (global-set-key (kbd "C-\"") 'er/mark-word)
+(global-set-key (kbd "M-å") 'backward-paragraph)
+(global-set-key (kbd "M-¨") 'forward-paragraph)
+
 
 
 (require 'gptel)
