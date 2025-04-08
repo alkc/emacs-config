@@ -147,6 +147,8 @@
 (global-set-key (kbd "M-¨") 'forward-paragraph)
 
 
+(setq vterm-tramp-shells '(("docker" "sh")
+                           ("ssh" "bash")))
 
 (require 'gptel)
 (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
