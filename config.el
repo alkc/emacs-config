@@ -123,8 +123,8 @@
   :config
   (set-docsets! 'nextflow-mode "Groovy"))
 
-(use-package keychain-environment
-  :config (keychain-refresh-environment))
+;;(use-package keychain-environment
+;;  :config (keychain-refresh-environment))
 
 (setq persp-emacsclient-init-frame-behaviour-override "main")
 
