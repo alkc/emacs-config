@@ -146,6 +146,11 @@
 (global-set-key (kbd "M-å") 'backward-paragraph)
 (global-set-key (kbd "M-¨") 'forward-paragraph)
 
+;; POMODORO TIMER KEYBINDS:
+(global-set-key (kbd "C-c n p t") 'org-timer-set-timer)
+(global-set-key (kbd "C-c n p s") 'org-timer-stop)
+(global-set-key (kbd "C-c n p p") 'org-timer-pause-or-continue)
+
 
 (setq vterm-tramp-shells '(("docker" "sh")
                            ("ssh" "bash")))
