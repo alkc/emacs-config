@@ -102,7 +102,7 @@
   :config
   (setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
   (setq heaven-and-hell-themes
-        '((light . doom-tomorrow-day)
+        '((light . doom-winter-is-coming-light)
           (dark . doom-gruvbox))) ;; Themes can be the list: (dark . (tsdh-dark wombat))
   ;; Optionall, load themes without asking for confirmation.
   (setq heaven-and-hell-load-theme-no-confirm t)
