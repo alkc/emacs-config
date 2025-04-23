@@ -82,7 +82,7 @@
 (modify-syntax-entry  ?_ "w" (standard-syntax-table))
 
 (setq user-full-name "Alexander Koc"
-      user-mail-address "alkc@proton.me")
+      user-mail-address "alexander.koc@skane.se")
 
 
 ;; Setup central bkp dir:
@@ -156,5 +156,10 @@
 (setq vterm-tramp-shells '(("docker" "sh")
                            ("ssh" "bash")))
 
+(define-key isearch-mode-map (kbd "C-ö") 'avy-isearch)
+(global-set-key (kbd "M-ö") 'avy-goto-char)
+
+
 (require 'gptel)
 (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
+
