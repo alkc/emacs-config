@@ -34,7 +34,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'modus-operandi)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -100,9 +100,9 @@
 (use-package heaven-and-hell
   :ensure t
   :config
-  (setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
+  ;;(setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
   (setq heaven-and-hell-themes
-        '((light . doom-winter-is-coming-light)
+        '((light . modus-operandi)
           (dark . doom-gruvbox))) ;; Themes can be the list: (dark . (tsdh-dark wombat))
   ;; Optionall, load themes without asking for confirmation.
   (setq heaven-and-hell-load-theme-no-confirm t)
@@ -145,6 +145,7 @@
 (global-set-key (kbd "C-\"") 'er/mark-word)
 (global-set-key (kbd "M-å") 'backward-paragraph)
 (global-set-key (kbd "M-¨") 'forward-paragraph)
+
 
 ;; POMODORO TIMER KEYBINDS:
 (global-set-key (kbd "C-c n p p") 'org-timer-set-timer)
