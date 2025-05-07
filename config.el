@@ -166,6 +166,13 @@
 (global-set-key (kbd "M-ä") 'avy-goto-char-timer)
 
 
-(require 'gptel)
-(setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
-
+(use-package gptel
+  :ensure t
+  :bind (("C-c o g g" . gptel))
+  :config
+  (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
+  (add-to-list
+   'gptel-directives
+   '(prompt-expert . "You are an AI expert. Help me to formulate the right prompt/question to ask a LLM to solve my problem. Please ask me questions about the problem, one question at a time, until you have gathered enough context about my problem in order to help me generate a good prompt.")
+   )
+  )
