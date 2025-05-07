@@ -163,6 +163,7 @@
 
 (define-key isearch-mode-map (kbd "C-ö") 'avy-isearch)
 (global-set-key (kbd "M-ö") 'avy-goto-char)
+(global-set-key (kbd "M-ä") 'avy-goto-char-timer)
 
 
 (require 'gptel)
