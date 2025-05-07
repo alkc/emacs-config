@@ -76,6 +76,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+(display-time)
 
 
 ;; For a majority of programming languages, an underscore is part of a word or symbol.
