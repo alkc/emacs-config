@@ -170,7 +170,9 @@
 
 (use-package gptel
   :ensure t
-  :bind (("C-c o g g" . gptel))
+  :bind (("C-c o g g" . gptel)
+         ("C-c o g m" . gptel-menu)
+         ("C-c o g r" . gptel-rewrite))
   :config
   (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
   (add-to-list
