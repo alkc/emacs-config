@@ -138,6 +138,9 @@
       (add-to-list 'eglot-server-programs
                    '(nextflow-mode . ("java" "-jar" nextflow-server-path))))))
 
+;; POMODORO TIMER DING
+;; TODO: won't work on WSL2.
+;;(setq org-clock-sound "/home/alkc/.config/emacs/.local/ding.wav")
 
 ;;(use-package keychain-environment
 ;;  :config (keychain-refresh-environment))
