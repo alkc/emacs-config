@@ -138,8 +138,10 @@
   '(setq docker-compose-command "docker compose"))
 
 (with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs
-               '(nextflow-mode . ("java" "-jar" "/home/alkc/.local/bin/nextflow-language-server-all.jar"))))
+  (let ((nextflow-server-path "/home/alkc/.local/bin/nextflow-language-server-all.jar"))
+    (when (file-exists-p nextflow-server-path)
+      (add-to-list 'eglot-server-programs
+                   '(nextflow-mode . ("java" "-jar" nextflow-server-path))))))
 
 (require 'nov)
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
