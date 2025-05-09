@@ -142,16 +142,16 @@
 ;;(use-package keychain-environment
 ;;  :config (keychain-refresh-environment))
 
+;; Connect to `main` workspace in new emacsclient sessions
 (setq persp-emacsclient-init-frame-behaviour-override "main")
 
-;; Use the docker compose plugin instead!
+;; Use the docker compose plugin instead if docker-compose
 (eval-after-load 'docker-compose
   '(setq docker-compose-command "docker compose"))
 
-
+;; TODO: this doesn't work?
 (require 'nov)
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-
 
 ;; MIXED KEYBINDS
 (global-set-key (kbd "C-ä") 'vundo)
@@ -160,13 +160,13 @@
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
-
 ;; POMODORO TIMER KEYBINDS:
 (global-set-key (kbd "C-c n p p") 'org-timer-set-timer)
 (global-set-key (kbd "C-c n p q") 'org-timer-stop)
 (global-set-key (kbd "C-c n p s") 'org-timer-pause-or-continue)
 
 
+;; TODO: Sometimes opens non-login shell? W/O sourcing .bashrc + precious aliases
 (setq vterm-tramp-shells '(("docker" "sh")
                            ("ssh" "bash")))
 
