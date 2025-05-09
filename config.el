@@ -81,8 +81,9 @@
 (display-time)
 
 
+;; Comment out not to skip over underscores when moving by word
 ;; For a majority of programming languages, an underscore is part of a word or symbol.
-(modify-syntax-entry  ?_ "w" (standard-syntax-table))
+;;(modify-syntax-entry  ?_ "w" (standard-syntax-table))
 
 (setq user-full-name "Alexander Koc"
       user-mail-address "alexander.koc@skane.se")
