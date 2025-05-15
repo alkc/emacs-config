@@ -157,8 +157,9 @@
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 ;; MIXED KEYBINDS
-(global-set-key (kbd "C-ä") 'vundo)
-(global-set-key (kbd "C-ö") 'comment-dwim)
+;; TODO: rebind:
+;; (global-set-key (kbd "C-ä") 'vundo)
+;; (global-set-key (kbd "C-ö") 'comment-dwim)
 (global-set-key (kbd "C-\"") 'er/mark-word)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
@@ -173,9 +174,18 @@
 (setq vterm-tramp-shells '(("docker" "sh")
                            ("ssh" "bash")))
 
-(define-key isearch-mode-map (kbd "C-ö") 'avy-isearch)
-(global-set-key (kbd "M-ö") 'avy-goto-char)
+
+;; Free up C-'
+(global-set-key (kbd "M-'") 'consult-imenu)
+
+;; Avy binds
+(define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
+(global-set-key (kbd "C-ä") 'avy-goto-char)
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
 (global-set-key (kbd "M-ä") 'avy-goto-char-timer)
+(global-set-key (kbd "M-g g") 'avy-goto-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
+(global-set-key (kbd "M-g e") 'avy-goto-word-0)
 
 
 (use-package gptel
