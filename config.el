@@ -200,3 +200,8 @@
    '(prompt-expert . "You are an AI expert. Help me to formulate the right prompt/question to ask a LLM to solve my problem. Please ask me questions about the problem, one question at a time, until you have gathered enough context about my problem in order to help me generate a good prompt.")
    )
   )
+(defun nallo-dired ()
+  "Open Dired at the specific location on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/"))
+
