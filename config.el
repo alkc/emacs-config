@@ -172,8 +172,7 @@
 
 ;; TODO: Sometimes opens non-login shell? W/O sourcing .bashrc + precious aliases
 (setq vterm-tramp-shells '(("docker" "sh")
-                           ("ssh" "bash")))
-
+                           ("ssh" "bash -l")))
 
 ;; Free up C-'
 (global-set-key (kbd "M-'") 'consult-imenu)
