@@ -189,7 +189,6 @@
 (global-set-key (kbd "M-g k r") 'avy-kill-region)
 
 
-
 (use-package gptel
   :ensure t
   :bind (("C-c o g g" . gptel)
@@ -204,8 +203,30 @@
    '(prompt-expert . "You are an AI expert. Help me to formulate the right prompt/question to ask a LLM to solve my problem. Please ask me questions about the problem, one question at a time, until you have gathered enough context about my problem in order to help me generate a good prompt.")
    )
   )
-(defun nallo-dired ()
-  "Open Dired at the specific location on hopper."
+
+;; (defun execute-remote-command-on-hopper (command)
+;;   "Execute a remote COMMAND on hopper."
+;;   (interactive "sCommand to run on hopper: ")
+;;   (let ((default-directory "/ssh:hopper:/"))
+;;     (shell-command command)))
+
+(defun hopper-nallo-dired ()
+  "Open nallo wrapper dir on hopper."
   (interactive)
   (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/"))
+
+(defun hopper-nallo-dotfiles ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/home/alkc/.local/SMD-dotfiles/"))
+
+(defun hopper-nallo-edit-wrapper ()
+  "Edit nallo wrapper code on hopper."
+  (interactive)
+  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/main.nf"))
+
+(defun hopper-nallo-edit-conf ()
+  "Remote edit nallo wrapper config"
+  (interactive)
+  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo/smd_nallo.config"))
 
