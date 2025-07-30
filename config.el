@@ -194,7 +194,10 @@
   :bind (("C-c o g g" . gptel)
          ("C-c o g m" . gptel-menu)
          ("C-c o g r" . gptel-rewrite)
-         ("C-c o g a" . gptel-add))
+         ("C-c o g a" . gptel-add)
+         ("C-c o g p" . gptel-system-prompt)
+         ("C-c o g q" . gptel-context-remove-all))
+
   :config
   (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
   (add-to-list
