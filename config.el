@@ -158,7 +158,8 @@
 
 ;; MIXED KEYBINDS
 ;; TODO: rebind:
-;; (global-set-key (kbd "C-ä") 'vundo)
+;; (global-set-key (kbd "C-M-_") 'vundo)
+
 ;; (global-set-key (kbd "C-ö") 'comment-dwim)
 (global-set-key (kbd "C-\"") 'er/mark-word)
 (global-set-key (kbd "M-n") 'forward-paragraph)
