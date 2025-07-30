@@ -233,5 +233,15 @@
   (interactive)
   (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo/smd_nallo.config"))
 
+(defun hopper-pipeline-config ()
+  "View pipeline config"
+  (interactive)
+  (find-file-read-only "/ssh:hopper:/fs2/sw/bnf-scripts/pipeline_files.config"))
+
+(defun hopper-pipeline-config-dev ()
+  "View pipeline config"
+  (interactive)
+  (find-file-read-only "/ssh:hopper:/fs2/sw/bnf-scripts/pipeline_files.config_dev"))
+
 (setf (alist-get 'python-mode apheleia-mode-alist)
       '(isort black))
