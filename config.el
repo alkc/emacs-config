@@ -230,3 +230,5 @@
   (interactive)
   (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo/smd_nallo.config"))
 
+(setf (alist-get 'python-mode apheleia-mode-alist)
+      '(isort black))
