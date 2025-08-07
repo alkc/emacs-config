@@ -108,9 +108,12 @@
   :config
   ;;(setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
   (setq heaven-and-hell-themes
-        '((light . modus-operandi)
-          (dark . doom-gruvbox))) ;; Themes can be the list: (dark . (tsdh-dark wombat))
-  ;; Optionall, load themes without asking for confirmation.
+        '(
+          (light . (ef-light modus-operandi))
+          (dark . (ef-dream doom-gruvbox))
+          )
+        ) ;; Themes can be the list: (dark . (tsdh-dark wombat))
+  ;; Optional, load themes without asking for confirmation.
   (setq heaven-and-hell-load-theme-no-confirm t)
   :hook (after-init . heaven-and-hell-init-hook)
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
