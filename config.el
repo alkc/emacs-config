@@ -175,6 +175,12 @@
 (setq vterm-tramp-shells '(("docker" "sh")
                            ("ssh" "bash -l")))
 
+;;
+(global-set-key (kbd "<f1>") 'previous-buffer)
+(global-set-key (kbd "<f2>") 'next-buffer)
+(global-set-key (kbd "C-<tab>") 'next-buffer)
+(global-set-key (kbd "C-<iso-lefttab>") 'previous-buffer)
+
 ;; Free up C-'
 (global-set-key (kbd "M-'") 'consult-imenu)
 
