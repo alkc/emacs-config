@@ -268,10 +268,43 @@
       '(isort black))
 
 ;; ORG fun
-
 (defun alkc/soppa-work ()
   "Remote edit nallo wrapper config"
   (interactive)
   (find-file "~/org/soppa.org"))
 
 (global-set-key (kbd "C-c o s") 'alkc/soppa-work)
+
+(setq org-default-notes-file (concat org-directory "soppa.org"))
+(setq +org-capture-notes-file (concat org-directory "soppa.org"))
+(setq +org-capture-todo-file (concat org-directory "soppa.org"))
+(setq +org-capture-projects-file (concat org-directory "soppa.org"))
+
+(setq org-capture-templates
+      '(("t" "TODO Inbox" entry (file+headline +org-capture-todo-file "Inbox")
+         "* TODO %?\n%i\n%a" :prepend t)
+        ("i" "IDEA Inbox" entry (file+headline +org-capture-todo-file "Inbox")
+         "* IDEA %?\n%i\n%a" :prepend t)
+        ("n" "Personal notes" entry (file+headline +org-capture-notes-file "Inbox")
+         "* %u %?\n%i\n%a" :prepend t)
+        ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
+         "* %U %?\n%i\n%a" :prepend t)
+        ;;("p" "Templates for projects")
+        ;; ("pt" "Project-local todo" entry
+        ;;  (file+headline +org-capture-project-todo-file "Inbox") "* TODO %?\n%i\n%a"
+        ;;  :prepend t)
+        ;; ("pn" "Project-local notes" entry
+        ;;  (file+headline +org-capture-project-notes-file "Inbox") "* %U %?\n%i\n%a"
+        ;;  :prepend t)
+        ;; ("pc" "Project-local changelog" entry
+        ;;  (file+headline +org-capture-project-changelog-file "Unreleased")
+        ;;  "* %U %?\n%i\n%a" :prepend t)
+        ;; ("o" "Centralized templates for projects")
+        ;; ("ot" "Project todo" entry #'+org-capture-central-project-todo-file
+        ;;  "* TODO %?\n %i\n %a" :heading "Tasks" :prepend nil)
+        ;; ("on" "Project notes" entry #'+org-capture-central-project-notes-file
+        ;;  "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
+        ;; ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file
+        ;;  "* %U %?\n %i\n %a" :heading "Changelog" :prepend t)
+        )
+      )
