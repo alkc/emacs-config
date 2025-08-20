@@ -234,6 +234,9 @@
 ;;   (let ((default-directory "/ssh:hopper:/"))
 ;;     (shell-command command)))
 
+
+
+;; TODO move this out to a work-locals.el something
 (defun hopper-nallo-dired ()
   "Open nallo wrapper dir on hopper."
   (interactive)
