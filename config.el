@@ -266,3 +266,12 @@
 
 (setf (alist-get 'python-mode apheleia-mode-alist)
       '(isort black))
+
+;; ORG fun
+
+(defun alkc/soppa-work ()
+  "Remote edit nallo wrapper config"
+  (interactive)
+  (find-file "~/org/soppa.org"))
+
+(global-set-key (kbd "C-c o s") 'alkc/soppa-work)
