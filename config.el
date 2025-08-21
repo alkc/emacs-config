@@ -216,10 +216,10 @@
    '(prompt-expert . "You are an AI expert. Help me to formulate the right prompt/question to ask a LLM to solve my problem. Please ask me questions about the problem, one question at a time, until you have gathered enough context about my problem in order to help me generate a good prompt.")
    )
   (gptel-make-preset 'conversational-partner
-                     :description "Preset for engaging in casual conversations."
-                     :backend "ChatGPT"
-                     :model 'gpt-4.5
-                     :system "You are a friendly conversational partner. Engage in casual and informative discussions.")
+    :description "Preset for engaging in casual conversations."
+    :backend "ChatGPT"
+    :model 'gpt-4.5
+    :system "You are a friendly conversational partner. Engage in casual and informative discussions.")
   )
 
 (use-package aidermacs
