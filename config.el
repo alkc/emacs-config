@@ -326,3 +326,21 @@
         ;;  "* %U %?\n %i\n %a" :heading "Changelog" :prepend t)
         )
       )
+
+
+(defun nallo/list-scout-yamls-dev ()
+  "List files in the hardcoded remote directory over SSH."
+  (interactive)
+  (let* ((remote-dir "/ssh:hopper:/fs1/results_dev/nallo/yaml/")  ; Define the remote directory.
+         ;; Create a temporary buffer to capture output from the SSH command.
+         (files (with-temp-buffer
+                  (call-process "ssh" nil t nil  ; Invoke the 'ssh' command.
+                                "hopper"  ; The hostname for the SSH connection.
+                                "ls" "-1t"  ; List files in one column, sorted by modification time.
+                                "/fs1/results_dev/nallo/yaml/")  ; The remote path to list files from.
+                  ;; Split the output of 'ls' into a list of file names.
+                  (split-string (buffer-string) "\n" t)))
+         ;; Prompt the user to select a file from the list of files retrieved.
+         (selected-file (completing-read "Select file: " files)))
+    ;; Display the selected file in the echo area.
+    (message "You selected: %s" selected-file)))
