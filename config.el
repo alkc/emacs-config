@@ -109,7 +109,7 @@
   ;;(setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
   (setq heaven-and-hell-themes
         '(
-          (light . (ef-light modus-operandi))
+          (light . (modus-operandi))
           (dark . (ef-dream doom-gruvbox))
           )
         ) ;; Themes can be the list: (dark . (tsdh-dark wombat))
