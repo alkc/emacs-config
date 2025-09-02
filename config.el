@@ -234,29 +234,7 @@
 ;;   (let ((default-directory "/ssh:hopper:/"))
 ;;     (shell-command command)))
 
-
-
 ;; TODO move this out to a work-locals.el something
-(defun hopper-nallo-dired ()
-  "Open nallo wrapper dir on hopper."
-  (interactive)
-  (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/"))
-
-(defun hopper-nallo-dotfiles ()
-  "Open nallo wrapper dir on hopper."
-  (interactive)
-  (dired "/ssh:hopper:/home/alkc/.local/SMD-dotfiles/"))
-
-(defun hopper-nallo-edit-wrapper ()
-  "Edit nallo wrapper code on hopper."
-  (interactive)
-  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/main.nf"))
-
-(defun hopper-nallo-edit-conf ()
-  "Remote edit nallo wrapper config"
-  (interactive)
-  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo/smd_nallo.config"))
-
 (defun hopper-pipeline-config ()
   "View pipeline config"
   (interactive)
@@ -266,6 +244,43 @@
   "View pipeline config"
   (interactive)
   (find-file-read-only "/ssh:hopper:/fs2/sw/bnf-scripts/pipeline_files.config_dev"))
+
+(defun hopper-beegfs-nextflow ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/mnt/beegfs/nextflow/"))
+
+(defun hopper-dotfiles ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/home/alkc/.local/SMD-dotfiles/"))
+
+;; Nallo cmds
+
+(defun nallo/open-mini-mini-nextflow-log ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (find-file-read-only "/ssh:hopper:/mnt/beegfs/nextflow/HG002-mini.alkc-nallo-dev/.nextflow.log"))
+
+(defun nallo/hopper ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/"))
+
+(defun nallo/hopper-config-files ()
+  "Open nallo wrapper config dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo"))
+
+(defun nallo/edit-wrapper-on-hopper ()
+  "Edit nallo wrapper code on hopper."
+  (interactive)
+  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/main.nf"))
+
+(defun nallo/hopper-edit-conf ()
+  "Remote edit nallo wrapper config"
+  (interactive)
+  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo/smd_nallo.config"))
 
 ;; (setf (alist-get 'python-mode apheleia-mode-alist)
 ;;      '(isort black))
