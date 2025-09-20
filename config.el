@@ -109,7 +109,7 @@
   ;;(setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
   (setq heaven-and-hell-themes
         '(
-          (light . (ef-light modus-operandi))
+          (light . (modus-operandi))
           (dark . (ef-dream doom-gruvbox))
           )
         ) ;; Themes can be the list: (dark . (tsdh-dark wombat))
@@ -168,6 +168,8 @@
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
+(global-set-key (kbd "C-c o a") 'org-agenda-list)
+
 ;; POMODORO TIMER KEYBINDS:
 (global-set-key (kbd "C-c n p p") 'org-timer-set-timer)
 (global-set-key (kbd "C-c n p q") 'org-timer-stop)
@@ -224,7 +226,7 @@
   )
 
 (use-package aidermacs
-  :bind (("C-c o a" . aidermacs-transient-menu))
+  :bind (("C-c o A" . aidermacs-transient-menu))
   :config
   (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
   )
@@ -236,26 +238,6 @@
 ;;     (shell-command command)))
 
 ;; TODO move this out to a work-locals.el something
-(defun hopper-nallo-dired ()
-  "Open nallo wrapper dir on hopper."
-  (interactive)
-  (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/"))
-
-(defun hopper-nallo-dotfiles ()
-  "Open nallo wrapper dir on hopper."
-  (interactive)
-  (dired "/ssh:hopper:/home/alkc/.local/SMD-dotfiles/"))
-
-(defun hopper-nallo-edit-wrapper ()
-  "Edit nallo wrapper code on hopper."
-  (interactive)
-  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/main.nf"))
-
-(defun hopper-nallo-edit-conf ()
-  "Remote edit nallo wrapper config"
-  (interactive)
-  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo/smd_nallo.config"))
-
 (defun hopper-pipeline-config ()
   "View pipeline config"
   (interactive)
@@ -265,6 +247,44 @@
   "View pipeline config"
   (interactive)
   (find-file-read-only "/ssh:hopper:/fs2/sw/bnf-scripts/pipeline_files.config_dev"))
+
+(defun hopper-beegfs-nextflow ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/mnt/beegfs/nextflow/"))
+
+(defun hopper-dotfiles ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/home/alkc/.local/SMD-dotfiles/"))
+
+;; Nallo cmds
+
+(defun nallo/open-mini-mini-nextflow-log ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (find-file-read-only "/ssh:hopper:/mnt/beegfs/nextflow/HG002-mini.alkc-nallo-dev/.nextflow.log"))
+
+(defun nallo/hopper ()
+  "Open nallo wrapper dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/"))
+
+(defun nallo/hopper-config-files ()
+  "Open nallo wrapper config dir on hopper."
+  (interactive)
+  (dired "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo"))
+
+(defun nallo/edit-wrapper-on-hopper ()
+  "Edit nallo wrapper code on hopper."
+  (interactive)
+  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/main.nf"))
+
+(defun nallo/hopper-edit-conf ()
+  "Remote edit nallo wrapper config"
+  (interactive)
+  (find-file "/ssh:hopper:/fs1/alkc/proj/smd-nallo-dev/config-files/nextflow/nallo/smd_nallo.config"))
+
 
 ;; FIXME This crashes the config:
 ;; (setf (alist-get 'python-mode apheleia-mode-alist)
@@ -320,3 +340,21 @@
         ;;  "* %U %?\n %i\n %a" :heading "Changelog" :prepend t)
         )
       )
+
+
+(defun nallo/list-scout-yamls-dev ()
+  "List files in the hardcoded remote directory over SSH."
+  (interactive)
+  (let* ((remote-dir "/ssh:hopper:/fs1/results_dev/nallo/yaml/")  ; Define the remote directory.
+         ;; Create a temporary buffer to capture output from the SSH command.
+         (files (with-temp-buffer
+                  (call-process "ssh" nil t nil  ; Invoke the 'ssh' command.
+                                "hopper"  ; The hostname for the SSH connection.
+                                "ls" "-1t"  ; List files in one column, sorted by modification time.
+                                "/fs1/results_dev/nallo/yaml/")  ; The remote path to list files from.
+                  ;; Split the output of 'ls' into a list of file names.
+                  (split-string (buffer-string) "\n" t)))
+         ;; Prompt the user to select a file from the list of files retrieved.
+         (selected-file (completing-read "Select file: " files)))
+    ;; Display the selected file in the echo area.
+    (message "You selected: %s" selected-file)))
