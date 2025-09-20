@@ -267,8 +267,9 @@
   (interactive)
   (find-file-read-only "/ssh:hopper:/fs2/sw/bnf-scripts/pipeline_files.config_dev"))
 
-(setf (alist-get 'python-mode apheleia-mode-alist)
-      '(isort black))
+;; FIXME This crashes the config:
+;; (setf (alist-get 'python-mode apheleia-mode-alist)
+;;      '(isort black))
 
 ;; ORG fun
 (defun alkc/soppa-work ()
