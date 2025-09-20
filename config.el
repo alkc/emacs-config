@@ -286,13 +286,22 @@
 
 (setq org-capture-templates
       '(("t" "TODO Inbox" entry (file+headline +org-capture-todo-file "Inbox")
+         "* TODO %?\n%i" :prepend t)
+        ("T" "TODO Inbox w/ link" entry (file+headline +org-capture-todo-file "Inbox")
          "* TODO %?\n%i\n%a" :prepend t)
         ("i" "IDEA Inbox" entry (file+headline +org-capture-todo-file "Inbox")
-         "* IDEA %?\n%i\n%a" :prepend t)
+         "* IDEA %?\n%i" :prepend t)
+        ("c" "Calendar" entry (file+headline +org-capture-todo-file "Calendar")
+         "* IDEA %?\n%i" :prepend t)
         ("n" "Personal notes" entry (file+headline +org-capture-notes-file "Inbox")
-         "* %u %?\n%i\n%a" :prepend t)
+         "* %u %?\n%i" :prepend t)
         ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
-         "* %U %?\n%i\n%a" :prepend t)
+         "* %U %?\n%i" :prepend t)
+        ("J" "Julle LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Julle")
+         "* %U %?\n%i" :prepend t)
+        ("A" "Ada LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Ada")
+         "* %U %?\n%i" :prepend t)
+
         ;;("p" "Templates for projects")
         ;; ("pt" "Project-local todo" entry
         ;;  (file+headline +org-capture-project-todo-file "Inbox") "* TODO %?\n%i\n%a"
