@@ -221,7 +221,9 @@
    '(nextflow-expert . "You are a nextflow DSL2 expert. You give minimal replies, no explanations unless specifically required. If my problem description is unclear, then you will ask me questions about the problem, one question at a time, until you have gathered enough context about my problem to give an answer. Do not hallucinate answers. Do not invent functions/classes/ or code otherwise not supported in nextflow/groovy.")
    '(prompt-expert . "You are an AI expert. Help me to formulate the right prompt/question to ask a LLM to solve my problem. Please ask me questions about the problem, one question at a time, until you have gathered enough context about my problem in order to help me generate a good prompt.")
    )
-  (gptel-make-preset 'conversational-partner
+
+  (gptel-make-preset
+      'conversational-partner
     :description "Preset for engaging in casual conversations."
     :backend "ChatGPT"
     :model 'gpt-4.5
@@ -242,6 +244,8 @@
 
 
 
+
+;; FIXME This crashes the config:
 ;; (setf (alist-get 'python-mode apheleia-mode-alist)
 ;;      '(isort black))
 
@@ -260,13 +264,22 @@
 
 (setq org-capture-templates
       '(("t" "TODO Inbox" entry (file+headline +org-capture-todo-file "Inbox")
+         "* TODO %?\n%i" :prepend t)
+        ("T" "TODO Inbox w/ link" entry (file+headline +org-capture-todo-file "Inbox")
          "* TODO %?\n%i\n%a" :prepend t)
         ("i" "IDEA Inbox" entry (file+headline +org-capture-todo-file "Inbox")
-         "* IDEA %?\n%i\n%a" :prepend t)
+         "* IDEA %?\n%i" :prepend t)
+        ("c" "Calendar" entry (file+headline +org-capture-todo-file "Calendar")
+         "* IDEA %?\n%i" :prepend t)
         ("n" "Personal notes" entry (file+headline +org-capture-notes-file "Inbox")
-         "* %u %?\n%i\n%a" :prepend t)
+         "* %u %?\n%i" :prepend t)
         ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
-         "* %U %?\n%i\n%a" :prepend t)
+         "* %U %?\n%i" :prepend t)
+        ("J" "Julle LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Julle")
+         "* %U %?\n%i" :prepend t)
+        ("A" "Ada LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Ada")
+         "* %U %?\n%i" :prepend t)
+
         ;;("p" "Templates for projects")
         ;; ("pt" "Project-local todo" entry
         ;;  (file+headline +org-capture-project-todo-file "Inbox") "* TODO %?\n%i\n%a"
