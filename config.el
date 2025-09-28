@@ -156,6 +156,7 @@
 (setq persp-emacsclient-init-frame-behaviour-override "main")
 
 ;; Use the docker compose plugin instead if docker-compose
+;; TODO: Move to work config
 (eval-after-load 'docker-compose
   '(setq docker-compose-command "docker compose"))
 
@@ -236,6 +237,7 @@
   (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
   )
 
+;; TODO: Move to work config
 ;; (defun execute-remote-command-on-hopper (command)
 ;;   "Execute a remote COMMAND on hopper."
 ;;   (interactive "sCommand to run on hopper: ")
