@@ -275,28 +275,6 @@
          "* %u %?\n%i" :prepend t)
         ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
          "* %U %?\n%i" :prepend t)
-        ("J" "Julle LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Julle")
-         "* %U %?\n%i" :prepend t)
-        ("A" "Ada LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Ada")
-         "* %U %?\n%i" :prepend t)
-
-        ;;("p" "Templates for projects")
-        ;; ("pt" "Project-local todo" entry
-        ;;  (file+headline +org-capture-project-todo-file "Inbox") "* TODO %?\n%i\n%a"
-        ;;  :prepend t)
-        ;; ("pn" "Project-local notes" entry
-        ;;  (file+headline +org-capture-project-notes-file "Inbox") "* %U %?\n%i\n%a"
-        ;;  :prepend t)
-        ;; ("pc" "Project-local changelog" entry
-        ;;  (file+headline +org-capture-project-changelog-file "Unreleased")
-        ;;  "* %U %?\n%i\n%a" :prepend t)
-        ;; ("o" "Centralized templates for projects")
-        ;; ("ot" "Project todo" entry #'+org-capture-central-project-todo-file
-        ;;  "* TODO %?\n %i\n %a" :heading "Tasks" :prepend nil)
-        ;; ("on" "Project notes" entry #'+org-capture-central-project-notes-file
-        ;;  "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
-        ;; ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file
-        ;;  "* %U %?\n %i\n %a" :heading "Changelog" :prepend t)
         )
       )
 
