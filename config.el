@@ -153,6 +153,7 @@
 (setq persp-emacsclient-init-frame-behaviour-override "main")
 
 ;; Use the docker compose plugin instead if docker-compose
+;; TODO: Move to work config
 (eval-after-load 'docker-compose
   '(setq docker-compose-command "docker compose"))
 
@@ -233,6 +234,7 @@
   (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
   )
 
+;; TODO: Move to work config
 ;; (defun execute-remote-command-on-hopper (command)
 ;;   "Execute a remote COMMAND on hopper."
 ;;   (interactive "sCommand to run on hopper: ")
@@ -272,28 +274,6 @@
          "* %u %?\n%i" :prepend t)
         ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
          "* %U %?\n%i" :prepend t)
-        ("J" "Julle LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Julle")
-         "* %U %?\n%i" :prepend t)
-        ("A" "Ada LOG" entry (file+olp+datetree "~/org/family.org" "Barnen" "LOG" "Ada")
-         "* %U %?\n%i" :prepend t)
-
-        ;;("p" "Templates for projects")
-        ;; ("pt" "Project-local todo" entry
-        ;;  (file+headline +org-capture-project-todo-file "Inbox") "* TODO %?\n%i\n%a"
-        ;;  :prepend t)
-        ;; ("pn" "Project-local notes" entry
-        ;;  (file+headline +org-capture-project-notes-file "Inbox") "* %U %?\n%i\n%a"
-        ;;  :prepend t)
-        ;; ("pc" "Project-local changelog" entry
-        ;;  (file+headline +org-capture-project-changelog-file "Unreleased")
-        ;;  "* %U %?\n%i\n%a" :prepend t)
-        ;; ("o" "Centralized templates for projects")
-        ;; ("ot" "Project todo" entry #'+org-capture-central-project-todo-file
-        ;;  "* TODO %?\n %i\n %a" :heading "Tasks" :prepend nil)
-        ;; ("on" "Project notes" entry #'+org-capture-central-project-notes-file
-        ;;  "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
-        ;; ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file
-        ;;  "* %U %?\n %i\n %a" :heading "Changelog" :prepend t)
         )
       )
 
