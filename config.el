@@ -277,6 +277,8 @@
          "* %u %?\n%i" :prepend t)
         ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
          "* %U %?\n%i" :prepend t)
+        ("J" "Secret journal" entry (file+olp+datetree +org-capture-secret-journal-file)
+         "* %U %?\n%i" :prepend t)
         )
       )
 
