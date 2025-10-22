@@ -85,9 +85,6 @@
 ;; For a majority of programming languages, an underscore is part of a word or symbol.
 ;;(modify-syntax-entry  ?_ "w" (standard-syntax-table))
 
-(setq user-full-name "Alexander Koc"
-      user-mail-address "alexander.koc@skane.se")
-
 (when (file-exists-p "/home/alkc/.config/emacs/modules/ui/doom-dashboard/banners/emacs-e-logo.png")
   (setq fancy-splash-image "/home/alkc/.config/emacs/modules/ui/doom-dashboard/banners/emacs-e-logo.png"))
 
