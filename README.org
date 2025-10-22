@@ -1,0 +1,4 @@
+#+title: alkc's gnu emax config
+
+-----
+Hello world!
