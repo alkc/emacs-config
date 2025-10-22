@@ -1,3 +1,14 @@
 #+title: alkc's gnu emax config
 
 Hello world!
+
+Not-so-interesting GNU (doom) emacs config of an emacs noob.
+
+* TODOs
+** TODO Add notes on building from source
+- Machine-specific stuff
+- Try some of the compile-level optimization from here:
+  [[https://github.com/D4lj337/Emacs-performance][https://github.com/D4lj337/Emacs-performance]]
+
+** TODO Add notes on recurring issues when building from source:
+- In particular `--with-x-toolkit` on WSL and Ubuntu?
