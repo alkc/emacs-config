@@ -21,9 +21,16 @@ git fetch --depth 1 origin tag "${target_version_tag_name}"
 git checkout "tags/${target_version_tag_name}"
 
 # WIP and untested:
-./configure.sh
-./autogen.sh \
+
+# TODO detect gcc version, install correct gccjit lib, tree sitter etc
+
+make clean
+
+./autogen.sh
+
+./configure\
     CFLAGS="-march=native -O3 -pipe -fno-finite-math-only" \
+    --prefix "/opt/${target_version_tag_name}"
     --with-modules \
     --with-x-toolkit=lucid \
     --with-xft \
@@ -39,3 +46,6 @@ git checkout "tags/${target_version_tag_name}"
     --without-gconf \
     --without-mailutils \
     --without-sound
+
+make -j
+sudo make install
