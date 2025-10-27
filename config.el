@@ -163,28 +163,17 @@
 
 ;; MIXED KEYBINDS
 ;; TODO: rebind:
-;; (global-set-key (kbd "C-M-_") 'vundo)
-
-;; (global-set-key (kbd "C-ö") 'comment-dwim)
 (global-set-key (kbd "C-\"") 'er/mark-word)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
 (global-set-key (kbd "C-c o a") 'org-agenda-list)
 
-;; POMODORO TIMER KEYBINDS:
-(global-set-key (kbd "C-c n p p") 'org-timer-set-timer)
-(global-set-key (kbd "C-c n p q") 'org-timer-stop)
-(global-set-key (kbd "C-c n p s") 'org-timer-pause-or-continue)
-
-
 ;; TODO: Sometimes opens non-login shell? W/O sourcing .bashrc + precious aliases
 (setq vterm-tramp-shells '(("docker" "sh")
                            ("ssh" "bash -l")))
 
-;;
-(global-set-key (kbd "<f1>") 'previous-buffer)
-(global-set-key (kbd "<f2>") 'next-buffer)
+
 (global-set-key (kbd "C-<tab>") 'next-buffer)
 (global-set-key (kbd "C-<iso-lefttab>") 'previous-buffer)
 
