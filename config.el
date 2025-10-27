@@ -174,6 +174,7 @@
                            ("ssh" "bash -l")))
 
 
+(global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "C-<tab>") 'next-buffer)
 (global-set-key (kbd "C-<iso-lefttab>") 'previous-buffer)
 
