@@ -211,11 +211,11 @@
    )
 
   (gptel-make-preset
-      'conversational-partner
-    :description "Preset for engaging in casual conversations."
-    :backend "ChatGPT"
-    :model 'gpt-4.5
-    :system "You are a friendly conversational partner. Engage in casual and informative discussions.")
+   'conversational-partner
+   :description "Preset for engaging in casual conversations."
+   :backend "ChatGPT"
+   :model 'gpt-4.5
+   :system "You are a friendly conversational partner. Engage in casual and informative discussions.")
   )
 
 (use-package aidermacs
