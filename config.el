@@ -231,9 +231,6 @@
 ;;   (let ((default-directory "/ssh:hopper:/"))
 ;;     (shell-command command)))
 
-
-
-
 ;; FIXME This crashes the config:
 ;; (setf (alist-get 'python-mode apheleia-mode-alist)
 ;;      '(isort black))
@@ -245,6 +242,7 @@
   (find-file "~/org/soppa.org"))
 
 (global-set-key (kbd "C-c o s") 'alkc/soppa-work)
+
 
 (setq org-default-notes-file (concat org-directory "soppa.org"))
 (setq +org-capture-notes-file (concat org-directory "soppa.org"))
