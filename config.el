@@ -246,6 +246,7 @@
 (setq org-default-notes-file (concat org-directory "soppa.org"))
 (setq +org-capture-notes-file (concat org-directory "soppa.org"))
 (setq +org-capture-todo-file (concat org-directory "soppa.org"))
+(setq +org-capture-calendar-file (concat org-directory "calendar.org"))
 (setq +org-capture-projects-file (concat org-directory "soppa.org"))
 
 (setq org-capture-templates
@@ -255,7 +256,7 @@
          "* TODO %?\n%i\n%a" :prepend t)
         ("i" "IDEA Inbox" entry (file+headline +org-capture-todo-file "Inbox")
          "* IDEA %?\n%i" :prepend t)
-        ("c" "Calendar" entry (file+headline +org-capture-todo-file "Calendar")
+        ("c" "Calendar" entry (file+headline +org-capture-calendar-file "Inbox")
          "* %?\n%i" :prepend t)
         ("n" "Personal notes" entry (file+headline +org-capture-notes-file "Inbox")
          "* %u %?\n%i" :prepend t)
