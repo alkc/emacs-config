@@ -249,6 +249,8 @@
 (setq +org-capture-calendar-file (concat org-directory "calendar.org"))
 (setq +org-capture-projects-file (concat org-directory "soppa.org"))
 
+(setq org-archive-location "./archive/%s_archive::")
+
 (setq org-capture-templates
       '(("t" "TODO Inbox" entry (file+headline +org-capture-todo-file "Inbox")
          "* TODO %?\n%i" :prepend t)
@@ -269,5 +271,3 @@
 
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/projects/SMD-dotfiles/work.el"))
-
-(setq org-archive-location "./archive/%s_archive::")
