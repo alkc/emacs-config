@@ -270,3 +270,4 @@
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/projects/SMD-dotfiles/work.el"))
 
+(setq org-archive-location "./archive/%s_archive::")
