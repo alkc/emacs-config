@@ -256,7 +256,7 @@
         ("i" "IDEA Inbox" entry (file+headline +org-capture-todo-file "Inbox")
          "* IDEA %?\n%i" :prepend t)
         ("c" "Calendar" entry (file+headline +org-capture-todo-file "Calendar")
-         "* IDEA %?\n%i" :prepend t)
+         "* %?\n%i" :prepend t)
         ("n" "Personal notes" entry (file+headline +org-capture-notes-file "Inbox")
          "* %u %?\n%i" :prepend t)
         ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
