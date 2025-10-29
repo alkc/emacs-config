@@ -103,7 +103,7 @@
 (use-package heaven-and-hell
   :ensure t
   :config
-  ;;(setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
+  (setq heaven-and-hell-theme-type 'dark) ;; Omit to use light by default
   (setq heaven-and-hell-themes
         '(
           (light . (modus-operandi))
