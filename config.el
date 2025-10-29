@@ -204,6 +204,10 @@
 
   :config
   (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
+  ;; Disable line numbering for gptel-mode
+  (add-hook 'gptel-mode-hook (lambda ()
+                               (line-number-mode -1)
+                               (display-line-numbers-mode -1)))
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
   (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   (add-to-list
