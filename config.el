@@ -204,6 +204,8 @@
 
   :config
   (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
+  (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
+  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   (add-to-list
    'gptel-directives
    '(nextflow-expert . "You are a nextflow DSL2 expert. You give minimal replies, no explanations unless specifically required. If my problem description is unclear, then you will ask me questions about the problem, one question at a time, until you have gathered enough context about my problem to give an answer. Do not hallucinate answers. Do not invent functions/classes/ or code otherwise not supported in nextflow/groovy.")
