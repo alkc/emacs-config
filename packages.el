@@ -69,10 +69,11 @@
 (package! keychain-environment)
 (package! lsp-mode :recipe (:host github :repo "emacs-lsp/lsp-mode"))
 (package! nov)
-(package! gptel
-  :host github
-  :repo "karthink/gptel"
-  :recipe (:branch "v0.9.9"))
+(package! gptel)
+;; (package! gptel
+;;   :host github
+;;   :repo "karthink/gptel"
+;;   :recipe (:branch "v0.9.9"))
 (package! ef-themes)
 
 (unless (package-installed-p 'vc-use-package)
