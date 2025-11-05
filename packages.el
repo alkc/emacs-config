@@ -48,11 +48,16 @@
                                         ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
                                         ;(unpin! t)
-
+;; Eye-candy 
 (package! doom-themes)
 (package! heaven-and-hell)
+(package! ef-themes)
+
+;; Magit forge?
+(package! sqlite3) ;; I think magit/forge needs this.
 
 ;; PYTHON
+;; TODO: Do I still need all these pkgs?
 (package! py-autopep8)
 (package! blacken)
 (package! pip-requirements)
@@ -61,15 +66,19 @@
 (package! live-py-mode)
 (package! py-yapf)
 (package! flycheck)
-(package! cl-lib)
-(package! groovy-mode)
 (package! jinja2-mode)
-(package! nextflow-mode :recipe (:host github :repo "emiller88/nextflow-mode"))
-(package! sqlite3) ;; I think magit/forge needs this.
+
+;; TODO: what did I need this for?
+(package! cl-lib)
 (package! keychain-environment)
+
+;; Nextflow-mode
+(package! groovy-mode)
+(package! nextflow-mode :recipe (:host github :repo "emiller88/nextflow-mode"))
 (package! lsp-mode :recipe (:host github :repo "emacs-lsp/lsp-mode"))
+
+;; epub reading:
 (package! nov)
-(package! ef-themes)
 
 (unless (package-installed-p 'vc-use-package)
   (package-vc-install "https://github.com/slotThe/vc-use-package"))
@@ -77,7 +86,6 @@
 (use-package lsp-mode
   :vc (:fetcher github :repo "emacs-lsp/lsp-mode"))
 
-(package! obsidian)
 ;; LLMs
 (package! gptel)
 (package! aidermacs)
