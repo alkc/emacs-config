@@ -78,7 +78,10 @@
   :vc (:fetcher github :repo "emacs-lsp/lsp-mode"))
 
 (package! obsidian)
+;; LLMs
 (package! gptel)
+(package! aidermacs)
+
 ;; agent-shell
 (package! shell-maker)
 (package! acp)
