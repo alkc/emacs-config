@@ -192,8 +192,7 @@
 (global-set-key (kbd "M-g e") 'avy-goto-word-0)
 (global-set-key (kbd "M-g k r") 'avy-kill-region)
 
-
-(use-package gptel
+(use-package! gptel
   :ensure t
   :bind (("C-c o g g" . gptel)
          ("C-c o g m" . gptel-menu)
@@ -216,19 +215,32 @@
    '(prompt-expert . "You are an AI expert. Help me to formulate the right prompt/question to ask a LLM to solve my problem. Please ask me questions about the problem, one question at a time, until you have gathered enough context about my problem in order to help me generate a good prompt.")
    )
 
-  (gptel-make-preset
-   'conversational-partner
-   :description "Preset for engaging in casual conversations."
-   :backend "ChatGPT"
-   :model 'gpt-4.5
-   :system "You are a friendly conversational partner. Engage in casual and informative discussions.")
+  ;; (gptel-make-preset 'conversational-partner
+  ;;   :description "Preset for engaging in casual conversations."
+  ;;   :backend "ChatGPT"
+  ;;   :model 'gpt-4.5
+  ;;   :system "You are a friendly conversational partner. Engage in casual and informative discussions."
+  ;;   )
   )
 
-(use-package aidermacs
-  :bind (("C-c o A" . aidermacs-transient-menu))
-  :config
-  (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
-  )
+
+;; (use-package aidermacs
+;;   :bind (("C-c o A" . aidermacs-transient-menu))
+;;   :config
+;;   (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
+;;   )
+
+;; (require 'acp)
+;; (require 'agent-shell)
+;; (use-package! agent-shell
+;;   :config
+;;   (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
+;;   (setq agent-shell-openai-authentication
+;;         (agent-shell-openai-make-authentication
+;;          :api-key (lambda () (auth-source-pick-first-password :host "api.openai.com"))))
+;;   )
+;; ;; With string
+
 
 ;; TODO: Move to work config
 ;; (defun execute-remote-command-on-hopper (command)
