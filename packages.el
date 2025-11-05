@@ -79,3 +79,7 @@
 
 (package! obsidian)
 (package! gptel)
+;; agent-shell
+(package! shell-maker)
+(package! acp)
+(package! agent-shell)
