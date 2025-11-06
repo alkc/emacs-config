@@ -109,38 +109,36 @@
           (light . (modus-operandi))
           (dark . (ef-dream doom-gruvbox))
           )
-        ) ;; Themes can be the list: (dark . (tsdh-dark wombat))
-  ;; Optional, load themes without asking for confirmation.
+        ) 
   (setq heaven-and-hell-load-theme-no-confirm t)
   :hook (after-init . heaven-and-hell-init-hook)
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
          ("<f6>" . heaven-and-hell-toggle-theme)))
 
-(use-package dired-narrow
-  :ensure t
-  :bind ((:map dired-mode-map
-               ("C-s" . dired-narrow))))
+(after! dired
+  (use-package! dired-narrow
+    :bind
+    (:map dired-mode-map ("C-s" . dired-narrow))
+    )
+  )
+
 ;; treemacs workaround thingie:
 ;; (add-to-list 'image-types 'svg)
-
 (setq confirm-kill-emacs nil)
 
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
-(add-hook 'python-mode #'display-fill-column-indicator-mode)
+
+(use-package! python-mode
+  :config
+  (add-hook 'python-mode #'display-fill-column-indicator-mode)
+  )
 
 ;; NEXTFLOW:
 (use-package! nextflow-mode
   :config
   (set-docsets! 'nextflow-mode "Groovy"))
 
-;; TODO: auto-enable LSP for all nextflow-mode buffers
-;; enable nextflow lsp if exists.
-(with-eval-after-load 'eglot
-  (let ((nextflow-server-path "/home/alkc/.local/bin/nextflow-language-server-all.jar"))
-    (when (file-exists-p nextflow-server-path)
-      (add-to-list 'eglot-server-programs
-                   '(nextflow-mode . ("java" "-jar" nextflow-server-path))))))
 
 ;; POMODORO TIMER DING
 ;; TODO: won't work on WSL2.
