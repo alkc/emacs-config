@@ -139,13 +139,6 @@
   :config
   (set-docsets! 'nextflow-mode "Groovy"))
 
-;; TODO: auto-enable LSP for all nextflow-mode buffers
-;; enable nextflow lsp if exists.
-(with-eval-after-load 'eglot
-  (let ((nextflow-server-path "/home/alkc/.local/bin/nextflow-language-server-all.jar"))
-    (when (file-exists-p nextflow-server-path)
-      (add-to-list 'eglot-server-programs
-                   '(nextflow-mode . ("java" "-jar" nextflow-server-path))))))
 
 ;; POMODORO TIMER DING
 ;; TODO: won't work on WSL2.
