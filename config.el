@@ -202,7 +202,7 @@
          ("C-c o g q" . gptel-context-remove-all))
 
   :config
-  (setq gptel-api-key (auth-source-pick-first-password :host "api.openai.com"))
+  (setq gptel-api-key (gptel-api-key-from-auth-source))
   ;; Disable line numbering for gptel-mode
   (add-hook 'gptel-mode-hook (lambda ()
                                (line-number-mode -1)
