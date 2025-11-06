@@ -157,9 +157,11 @@
 (eval-after-load 'docker-compose
   '(setq docker-compose-command "docker compose"))
 
-;; TODO: this doesn't work?
-(require 'nov)
-(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+(use-package! nov
+  :config
+  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+  )
+
 
 ;; MIXED KEYBINDS
 ;; TODO: rebind:
