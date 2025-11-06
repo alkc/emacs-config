@@ -116,10 +116,13 @@
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
          ("<f6>" . heaven-and-hell-toggle-theme)))
 
-(use-package dired-narrow
-  :ensure t
-  :bind ((:map dired-mode-map
-               ("C-s" . dired-narrow))))
+(after! dired
+  (use-package! dired-narrow
+    :bind
+    (:map dired-mode-map ("C-s" . dired-narrow))
+    )
+  )
+
 ;; treemacs workaround thingie:
 ;; (add-to-list 'image-types 'svg)
 
