@@ -181,16 +181,19 @@
 ;; Free up C-'
 (global-set-key (kbd "M-'") 'consult-imenu)
 
-;; Avy binds
-(define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
-(global-set-key (kbd "C-ä") 'avy-goto-char)
-(global-set-key (kbd "C-'") 'avy-goto-char-2)
-(global-set-key (kbd "M-ä") 'avy-goto-char-timer)
-(global-set-key (kbd "M-g g") 'avy-goto-line)
-(global-set-key (kbd "M-g M-g") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-1)
-(global-set-key (kbd "M-g e") 'avy-goto-word-0)
-(global-set-key (kbd "M-g k r") 'avy-kill-region)
+(use-package! avy
+  :ensure t
+  :bind (("C-ä" . avy-goto-char)
+         ("C-'" . avy-goto-char-2)
+         ("M-ä" . avy-goto-char-timer)
+         ("M-g g" . avy-goto-line)
+         ("M-g M-g" . avy-goto-line)
+         ("M-g w" . avy-goto-word-1)
+         ("M-g e" . avy-goto-word-0)
+         ("M-g k r" . avy-kill-region))
+  :config
+  (define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
+  )
 
 (use-package! gptel
   :ensure t
