@@ -128,7 +128,6 @@
 
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
-(add-hook 'python-mode #'display-fill-column-indicator-mode)
 
 (use-package! python-mode
   :config
