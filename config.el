@@ -163,7 +163,6 @@
 
 ;; MIXED KEYBINDS
 ;; TODO: rebind:
-(global-set-key (kbd "C-\"") 'er/mark-word)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
