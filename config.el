@@ -244,15 +244,12 @@
 
 ;; (require 'acp)
 ;; (require 'agent-shell)
-;; (use-package! agent-shell
-;;   :config
-;;   (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
-;;   (setq agent-shell-openai-authentication
-;;         (agent-shell-openai-make-authentication
-;;          :api-key (lambda () (auth-source-pick-first-password :host "api.openai.com"))))
-;;   )
-;; ;; With string
-
+(use-package! agent-shell
+  :config
+  (setq agent-shell-openai-authentication
+        (agent-shell-openai-make-authentication
+         :api-key (lambda () (auth-source-pick-first-password :host "api.openai.com"))))
+  )
 
 ;; TODO: Move to work config
 ;; (defun execute-remote-command-on-hopper (command)
