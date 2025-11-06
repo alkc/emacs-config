@@ -224,6 +224,18 @@
   )
 
 
+(after! gptel
+  (use-package! gptel-quick
+    :config
+    (setq gptel-quick-backend gptel-backend)
+    (setq gptel-quick-model 'gpt-4.1-nano)
+    )
+  )
+
+(after! embark
+  (keymap-set embark-general-map "?" #'gptel-quick)
+  )
+
 ;; (use-package aidermacs
 ;;   :bind (("C-c o A" . aidermacs-transient-menu))
 ;;   :config

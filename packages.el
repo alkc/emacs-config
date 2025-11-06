@@ -81,7 +81,9 @@
 (package! nov)
 
 ;; LLMs
-(package! gptel)
+(package! gptel :recipe (:nonrecursive t))
+(package! gptel-quick
+  :recipe (:host github :repo "karthink/gptel-quick"))
 (package! aidermacs)
 
 ;; agent-shell
