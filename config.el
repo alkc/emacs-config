@@ -129,10 +129,10 @@
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
 
-(use-package! python-mode
-  :config
-  (add-hook 'python-mode #'display-fill-column-indicator-mode)
-  )
+;; (use-packageaf! python-mode
+;;   :config
+;;   (add-hook 'python-mode #'display-fill-column-indicator-mode)
+;;   )
 
 ;; NEXTFLOW:
 (use-package! nextflow-mode
