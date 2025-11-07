@@ -69,13 +69,13 @@
 (package! jinja2-mode)
 
 ;; TODO: what did I need this for?
-(package! cl-lib)
+
 (package! keychain-environment)
 
 ;; Nextflow-mode
+(package! cl-lib)
 (package! groovy-mode)
-(package! nextflow-mode :recipe (:host github :repo "emiller88/nextflow-mode"))
-(package! lsp-mode :recipe (:host github :repo "emacs-lsp/lsp-mode"))
+(package! nextflow-mode :recipe (:host github :repo "edmundmiller/nextflow-mode"))
 
 ;; epub reading:
 (package! nov)
