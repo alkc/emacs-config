@@ -68,10 +68,6 @@
 (package! flycheck)
 (package! jinja2-mode)
 
-;; TODO: what did I need this for?
-
-(package! keychain-environment)
-
 ;; Nextflow-mode
 (package! cl-lib)
 (package! groovy-mode)
