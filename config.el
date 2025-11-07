@@ -136,11 +136,12 @@
 
 
 ;; NEXTFLOW:
+
 (use-package! nextflow-mode
   :config
   (set-docsets! 'nextflow-mode "Groovy")
-  :hook
-  ('nextflow-mode-hook . 'lsp-deferred)
+  :init
+  (add-hook 'nextflow-mode-hook #'lsp-deferred)
   )
 
 (use-package! lsp-mode
