@@ -44,7 +44,6 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -169,8 +168,6 @@
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
-(global-set-key (kbd "C-c o a") 'org-agenda-list)
-
 ;; TODO: Sometimes opens non-login shell? W/O sourcing .bashrc + precious aliases
 (setq vterm-tramp-shells '(("docker" "sh")
                            ("ssh" "bash -l")))
@@ -260,39 +257,41 @@
 ;; (setf (alist-get 'python-mode apheleia-mode-alist)
 ;;      '(isort black))
 
-;; ORG fun
-(defun alkc/soppa-work ()
+;; Org:
+(defun my/soppa ()
   "Dive straight into soup"
   (interactive)
   (find-file "~/org/soppa.org"))
 
-(global-set-key (kbd "C-c o s") 'alkc/soppa-work)
 
-(setq org-default-notes-file (concat org-directory "soppa.org"))
-(setq +org-capture-notes-file (concat org-directory "soppa.org"))
-(setq +org-capture-todo-file (concat org-directory "soppa.org"))
-(setq +org-capture-calendar-file (concat org-directory "calendar.org"))
-(setq +org-capture-projects-file (concat org-directory "soppa.org"))
 
-(setq org-archive-location "./archive/%s_archive::")
-
-(setq org-capture-templates
-      '(("t" "TODO Inbox" entry (file+headline +org-capture-todo-file "Inbox")
-         "* TODO %?\n%i" :prepend t)
-        ("T" "TODO Inbox w/ link" entry (file+headline +org-capture-todo-file "Inbox")
-         "* TODO %?\n%i\n%a" :prepend t)
-        ("i" "IDEA Inbox" entry (file+headline +org-capture-todo-file "Inbox")
-         "* IDEA %?\n%i" :prepend t)
-        ("c" "Calendar" entry (file+headline +org-capture-calendar-file "Inbox")
-         "* %?\n%i" :prepend t)
-        ("n" "Personal notes" entry (file+headline +org-capture-notes-file "Inbox")
-         "* %u %?\n%i" :prepend t)
-        ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
-         "* %U %?\n%i" :prepend t)
-        ("J" "Secret journal" entry (file+olp+datetree +org-capture-secret-journal-file)
-         "* %U %?\n%i" :prepend t)
-        )
-      )
+(use-package! org
+  :bind
+  ("C-c o s" . my/soppa)
+  :config
+  (setq org-default-notes-file (concat org-directory "soppa.org"))
+  (setq +org-capture-notes-file (concat org-directory "soppa.org"))
+  (setq +org-capture-todo-file (concat org-directory "soppa.org"))
+  (setq +org-capture-calendar-file (concat org-directory "calendar.org"))
+  (setq +org-capture-projects-file (concat org-directory "soppa.org"))
+  (setq org-archive-location "./archive/%s_archive::")
+  (setq org-capture-templates
+        '(("t" "TODO Inbox" entry (file+headline +org-capture-todo-file "Inbox")
+           "* TODO %?\n%i" :prepend t)
+          ("T" "TODO Inbox w/ link" entry (file+headline +org-capture-todo-file "Inbox")
+           "* TODO %?\n%i\n%a" :prepend t)
+          ("i" "IDEA Inbox" entry (file+headline +org-capture-todo-file "Inbox")
+           "* IDEA %?\n%i" :prepend t)
+          ("c" "Calendar" entry (file+headline +org-capture-calendar-file "Inbox")
+           "* %?\n%i" :prepend t)
+          ("n" "Personal notes" entry (file+headline +org-capture-notes-file "Inbox")
+           "* %u %?\n%i" :prepend t)
+          ("j" "Journal" entry (file+olp+datetree +org-capture-journal-file)
+           "* %U %?\n%i" :prepend t)
+          ("J" "Secret journal" entry (file+olp+datetree +org-capture-secret-journal-file)
+           "* %U %?\n%i" :prepend t)
+          )
+        ))
 
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/projects/SMD-dotfiles/work.el"))
