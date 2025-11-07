@@ -134,11 +134,14 @@
 ;;   (add-hook 'python-mode #'display-fill-column-indicator-mode)
 ;;   )
 
+
 ;; NEXTFLOW:
 (use-package! nextflow-mode
   :config
-  (set-docsets! 'nextflow-mode "Groovy"))
-
+  (set-docsets! 'nextflow-mode "Groovy")
+  :hook
+  ('nextflow-mode-hook . 'lsp-deferred)
+  )
 
 ;; POMODORO TIMER DING
 ;; TODO: won't work on WSL2.
