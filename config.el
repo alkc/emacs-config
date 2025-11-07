@@ -146,6 +146,11 @@
 ;; POMODORO TIMER DING
 ;; TODO: won't work on WSL2.
 ;;(setq org-clock-sound "/home/alkc/.config/emacs/.local/ding.wav")
+(use-package! lsp-mode
+  :config
+  (setq lsp-nextflow-server-file "/home/alkc/.config/emacs/.local/etc/lsp/nextflow-language-server-all_25.10.1.jar")
+  (setq lsp-nextflow-version "25.10.1")
+  )
 
 ;;(use-package keychain-environment
 ;;  :config (keychain-refresh-environment))
