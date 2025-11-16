@@ -269,6 +269,7 @@
   :bind
   ("C-c o s" . my/soppa)
   :config
+  (require 'org-habit)
   (setq org-default-notes-file (concat org-directory "soppa.org"))
   (setq +org-capture-notes-file (concat org-directory "soppa.org"))
   (setq +org-capture-todo-file (concat org-directory "soppa.org"))
