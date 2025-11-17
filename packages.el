@@ -86,3 +86,6 @@
 (package! shell-maker)
 (package! acp)
 (package! agent-shell)
+
+;; Misc
+(package! fuzzy-clock)

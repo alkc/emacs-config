@@ -77,7 +77,14 @@
 ;; they are implemented.
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
-(display-time)
+(display-time-mode -1)
+
+(use-package! fuzzy-clock
+  :config
+  (setq fuzzy-clock-fuzziness 'part-of-day)
+  (setq fuzzy-clock-update-interval 3600)  
+  (fuzzy-clock-mode 1))
+
 
 
 ;; Comment out not to skip over underscores when moving by word
