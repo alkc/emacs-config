@@ -135,11 +135,8 @@
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
 
-;; (use-packageaf! python-mode
-;;   :config
-;;   (add-hook 'python-mode #'display-fill-column-indicator-mode)
-;;   )
-
+(use-package! python-mode 
+  :hook (python-mode . display-fill-column-indicator-mode))
 
 ;; NEXTFLOW:
 
@@ -269,8 +266,6 @@
   "Dive straight into soup"
   (interactive)
   (find-file "~/org/soppa.org"))
-
-
 
 (use-package! org
   :bind
