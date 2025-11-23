@@ -275,6 +275,11 @@
 (use-package! org
   :bind
   ("C-c o s" . my/soppa)
+  :hook
+  (org-mode . (lambda ()
+                (display-line-numbers-mode 0)
+                (flyspell-mode 0)
+                ))
   :config
   (require 'org-habit)
   (setq org-default-notes-file (concat org-directory "soppa.org"))
