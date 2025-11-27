@@ -268,13 +268,11 @@
   (find-file "~/org/soppa.org"))
 
 (use-package! org
+  :init
+  (remove-hook! 'org-mode-hook #'display-line-numbers-mode)
+  (remove-hook! 'org-mode-hook #'flyspell-mode)             ;; Until you have a swedish dict sorted
   :bind
   ("C-c o s" . my/soppa)
-  :hook
-  (org-mode . (lambda ()
-                (display-line-numbers-mode 0)
-                (flyspell-mode 0)
-                ))
   :config
   (require 'org-habit)
   (setq calendar-week-start-day 1)
