@@ -277,6 +277,7 @@
                 ))
   :config
   (require 'org-habit)
+  (setq calendar-week-start-day 1)
   (setq org-default-notes-file (concat org-directory "soppa.org"))
   (setq +org-capture-notes-file (concat org-directory "soppa.org"))
   (setq +org-capture-todo-file (concat org-directory "soppa.org"))
