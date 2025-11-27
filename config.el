@@ -300,5 +300,30 @@
           )
         ))
 
+;; (use-package! ispell
+;;   :after flyspell
+;;   :config
+;;   (setq ispell-program-name (or (executable-find "hunspell")
+;;                                 (executable-find "aspell")  ;; fallback
+;;                                 "hunspell"))
+;;   ;; prefer Hunspell with Swedish
+;;   (setq ispell-really-hunspell t)
+;;   ;; default dictionary: Swedish
+;;   (setq ispell-dictionary "sv_SE")
+;;   (setq ispell-local-dictionary "sv_SE")
+;;   ;; optionally define dictionary list if you want to support multiple langs
+;;   (when (boundp 'ispell-local-dictionary-alist)
+;;     (add-to-list 'ispell-local-dictionary-alist
+;;                  '("sv_SE" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "sv_SE") nil utf-8)))
+;;   (when (boundp 'ispell-hunspell-dictionary-alist)
+;;     (setq ispell-hunspell-dictionary-alist ispell-local-dictionary-alist)))
+;; (use-package! flyspell
+;;   :hook (org-mode . flyspell-mode)
+;;   :config
+;;   ;; optionally, enable multiple dictionaries (Swedish + English)
+;;   (when (and (fboundp 'ispell-hunspell-add-multi-dic)
+;;              (member ispell-program-name '("hunspell" "aspell")))
+;;     (ispell-hunspell-add-multi-dic "sv_SE,en_US")))
+
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/projects/SMD-dotfiles/work.el"))
