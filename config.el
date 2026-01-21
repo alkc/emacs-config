@@ -248,6 +248,8 @@
   (setq agent-shell-openai-authentication
         (agent-shell-openai-make-authentication
          :api-key (lambda () (auth-source-pick-first-password :host "api.openai.com"))))
+  :bind
+  ("C-c o a" . agent-shell)
   )
 
 ;; TODO: Move to work config
