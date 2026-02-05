@@ -150,7 +150,6 @@
 (use-package! lsp-mode
   :config
   (setq lsp-nextflow-server-file "/home/alkc/.config/emacs/.local/etc/lsp/nextflow-language-server_25.10.2.jar")
-  (setq lsp-nextflow-version "25.10.2")
   )
 
 
@@ -235,14 +234,6 @@
   (keymap-set embark-general-map "?" #'gptel-quick)
   )
 
-;; (use-package aidermacs
-;;   :bind (("C-c o A" . aidermacs-transient-menu))
-;;   :config
-;;   (setenv "OPENAI_API_KEY" (auth-source-pick-first-password :host "api.openai.com"))
-;;   )
-
-;; (require 'acp)
-;; (require 'agent-shell)
 (use-package! agent-shell
   :config
   (setq agent-shell-openai-authentication
@@ -251,13 +242,6 @@
   :bind
   ("C-c o a" . agent-shell)
   )
-
-;; TODO: Move to work config
-;; (defun execute-remote-command-on-hopper (command)
-;;   "Execute a remote COMMAND on hopper."
-;;   (interactive "sCommand to run on hopper: ")
-;;   (let ((default-directory "/ssh:hopper:/"))
-;;     (shell-command command)))
 
 ;; FIXME This crashes the config:
 ;; (setf (alist-get 'python-mode apheleia-mode-alist)
