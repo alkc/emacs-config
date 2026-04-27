@@ -313,3 +313,17 @@
 
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/projects/SMD-dotfiles/work.el"))
+
+(defun my/split-window-right-and-focus ()
+  (interactive)
+  (split-window-right)
+  (other-window 1))
+
+(defun my/split-window-below-and-focus ()
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+
+(map!
+ "C-x 2" #'my/split-window-below-and-focus
+ "C-x 3" #'my/split-window-right-and-focus)
