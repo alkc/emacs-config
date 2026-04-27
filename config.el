@@ -234,11 +234,11 @@
   (keymap-set embark-general-map "?" #'gptel-quick)
   )
 
+
 (use-package! agent-shell
   :config
   (setq agent-shell-openai-authentication
-        (agent-shell-openai-make-authentication
-         :api-key (lambda () (auth-source-pick-first-password :host "api.openai.com"))))
+        (agent-shell-openai-make-authentication :login t))
   :bind
   ("C-c o a" . agent-shell)
   )
