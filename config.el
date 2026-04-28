@@ -86,6 +86,10 @@
   (fuzzy-clock-mode 1))
 
 
+(let ((local-bin (expand-file-name "~/.local/bin")))
+  (when (file-directory-p local-bin)
+    (setenv "PATH" (concat local-bin path-separator (getenv "PATH")))
+    (add-to-list 'exec-path local-bin)))
 
 ;; Comment out not to skip over underscores when moving by word
 ;; For a majority of programming languages, an underscore is part of a word or symbol.
