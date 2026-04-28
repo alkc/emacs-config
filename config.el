@@ -312,7 +312,7 @@
 ;;     (ispell-hunspell-add-multi-dic "sv_SE,en_US")))
 
 (when (string= (system-name) "RS30211241")
-  (load-file "/home/alkc/projects/SMD-dotfiles/work.el"))
+  (load-file "/home/alkc/.local/SMD-dotfiles/work.el"))
 
 (defun my/split-window-right-and-focus ()
   (interactive)
