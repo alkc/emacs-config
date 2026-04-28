@@ -260,7 +260,6 @@
 (use-package! org
   :init
   (remove-hook! 'org-mode-hook #'display-line-numbers-mode)
-  (remove-hook! 'org-mode-hook #'flyspell-mode)             ;; Until you have a swedish dict sorted
   :bind
   ("C-c o s" . my/soppa)
   :config
