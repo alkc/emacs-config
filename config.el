@@ -165,9 +165,12 @@
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
-;; TODO: Sometimes opens non-login shell? W/O sourcing .bashrc + precious aliases
-(setq vterm-tramp-shells '(("docker" "sh")
-                           ("ssh" "bash -l")))
+(after! vterm
+  (add-to-list 'vterm-environment "EMACS_VTERM=1")
+
+  ;; TODO: Sometimes opens non-login shell? W/O sourcing .bashrc + precious aliases
+  (setq vterm-tramp-shells '(("docker" "sh")
+                             ("ssh" "bash -l"))))
 
 
 (global-set-key (kbd "M-o") 'other-window)
