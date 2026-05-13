@@ -229,7 +229,7 @@
 
 (after! embark
   (keymap-set embark-general-map "?" #'gptel-quick)
-  )
+  (keymap-set embark-identifier-map "o" #'xref-find-definitions-other-window))
 
 
 (use-package! agent-shell
