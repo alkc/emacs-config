@@ -89,3 +89,5 @@
 
 ;; Misc
 (package! fuzzy-clock)
+
+(package! micromamba)
