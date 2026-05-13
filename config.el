@@ -143,7 +143,7 @@
 
 (use-package! lsp-mode
   :config
-  (setq lsp-nextflow-server-file "/home/alkc/.config/emacs/.local/etc/lsp/nextflow-language-server_25.10.2.jar")
+  (setq lsp-nextflow-server-file "/home/alkc/.config/emacs/.local/etc/lsp/nextflow-language-server-26.04.0.jar")
   )
 
 
