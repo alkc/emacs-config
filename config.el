@@ -124,16 +124,6 @@
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
          ("<f6>" . heaven-and-hell-toggle-theme)))
 
-(after! dired
-  (use-package! dired-narrow
-    :bind
-    (:map dired-mode-map ("C-s" . dired-narrow))
-    )
-  )
-
-;; treemacs workaround thingie:
-;; (add-to-list 'image-types 'svg)
-
 (setq confirm-kill-emacs nil)
 
 (setq projectile-project-search-path '("~/projects/" ))
