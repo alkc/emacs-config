@@ -95,8 +95,9 @@
 ;; For a majority of programming languages, an underscore is part of a word or symbol.
 ;;(modify-syntax-entry  ?_ "w" (standard-syntax-table))
 
-(when (file-exists-p "/home/alkc/.config/emacs/modules/ui/doom-dashboard/banners/emacs-e-logo.png")
-  (setq fancy-splash-image "/home/alkc/.config/emacs/modules/ui/doom-dashboard/banners/emacs-e-logo.png"))
+(let ((splash-image "/home/alkc/.config/emacs/modules/ui/doom-dashboard/M-x_butterfly.png"))
+  (when (file-exists-p splash-image)
+    (setq fancy-splash-image splash-image)))
 
 ;; Setup central bkp dir:
 (setq backup-directory-alist `(("." . "~/.saves")))
