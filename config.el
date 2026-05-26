@@ -122,8 +122,7 @@
         ) 
   (setq heaven-and-hell-load-theme-no-confirm t)
   :hook (after-init . heaven-and-hell-init-hook)
-  :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
-         ("<f6>" . heaven-and-hell-toggle-theme)))
+  :bind ("C-c t h" . heaven-and-hell-toggle-theme))
 
 (setq confirm-kill-emacs nil)
 
