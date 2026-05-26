@@ -117,7 +117,7 @@
   (setq heaven-and-hell-themes
         '(
           (light . (modus-operandi))
-          (dark . (ef-dream doom-gruvbox))
+          (dark . (ef-dream))
           )
         ) 
   (setq heaven-and-hell-load-theme-no-confirm t)
