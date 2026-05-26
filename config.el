@@ -213,7 +213,7 @@
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
   (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   )
-)
+
 
 
 (after! gptel
