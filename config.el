@@ -285,13 +285,13 @@
 (after! ispell
   (setq ispell-program-name "hunspell"
         ispell-really-hunspell t
-        ispell-dictionary "sv_SE,en_US"
-        ispell-local-dictionary "sv_SE,en_US"))
+        ispell-dictionary "sv_SE,en_US,pl_PL"
+        ispell-local-dictionary "sv_SE,en_US,pl_PL"))
 
 (after! flyspell
   (setq flyspell-issue-message-flag nil)
   (when (fboundp 'ispell-hunspell-add-multi-dic)
-    (ispell-hunspell-add-multi-dic "sv_SE,en_US")))
+    (ispell-hunspell-add-multi-dic "sv_SE,en_US,pl_PL")))
 
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/.local/SMD-dotfiles/work.el"))
