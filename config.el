@@ -184,14 +184,15 @@
   :ensure t
   :init
   (define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
-  :bind (("C-ä" . avy-goto-char)
-         ("C-'" . avy-goto-char-2)
-         ("M-ä" . avy-goto-char-timer)
-         ("M-g g" . avy-goto-line)
-         ("M-g M-g" . avy-goto-line)
-         ("M-g w" . avy-goto-word-1)
-         ("M-g e" . avy-goto-word-0)
-         ("M-g k r" . avy-kill-region))
+  :bind (("C-ä"     . avy-goto-char      )
+         ("C-'"     . avy-goto-char-2    )
+         ("M-ä"     . avy-goto-char-timer)
+         ("M-g g"   . avy-goto-line      )
+         ("M-g M-g" . avy-goto-line      )
+         ("M-g w"   . avy-goto-word-1    )
+         ("M-g e"   . avy-goto-word-0    )
+         ("M-g k r" . avy-kill-region    )
+         )
   )
 
 (use-package! gptel
