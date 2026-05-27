@@ -1,22 +1,23 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
 EMACS_GIT_REPO="https://github.com/emacsmirror/emacs.git"
 TARGET_EMACS_VERSION="30.2"
 DOWNLOAD_DIR="${HOME}/projects/emacs-src/"
+target_version_tag_name="emacs-${TARGET_EMACS_VERSION}"
+install_prefix="/opt/${target_version_tag_name}"
 
 if [ ! -d "$DOWNLOAD_DIR" ];
 then
     mkdir -p "${DOWNLOAD_DIR}"
-    cd ${DOWNLOAD_DIR}
+    cd "${DOWNLOAD_DIR}"
     git init
-    git remote add origin ${EMACS_GIT_REPO}
+    git remote add origin "${EMACS_GIT_REPO}"
 else
-    cd ${DOWNLOAD_DIR}
+    cd "${DOWNLOAD_DIR}"
 fi
 
-target_version_tag_name="emacs-${TARGET_EMACS_VERSION}"
 git fetch --depth 1 origin tag "${target_version_tag_name}"
 git checkout "tags/${target_version_tag_name}"
 
@@ -24,13 +25,15 @@ git checkout "tags/${target_version_tag_name}"
 
 # TODO detect gcc version, install correct gccjit lib, tree sitter etc
 
-make clean
+if [ -f Makefile ]; then
+    make clean
+fi
 
 ./autogen.sh
 
-./configure\
-    CFLAGS="-march=native -O3 -pipe -fno-finite-math-only" \
-    --prefix "/opt/${target_version_tag_name}"
+CFLAGS="-march=native -O3 -pipe -fno-finite-math-only" \
+./configure \
+    --prefix="${install_prefix}" \
     --with-modules \
     --with-x-toolkit=lucid \
     --with-xft \
