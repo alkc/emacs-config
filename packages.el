@@ -76,12 +76,6 @@
 ;; epub reading:
 (package! nov)
 
-;; LLMs
-(package! gptel :recipe (:nonrecursive t))
-(package! gptel-quick
-  :recipe (:host github :repo "karthink/gptel-quick"))
-(package! aidermacs)
-
 ;; agent-shell
 (package! shell-maker)
 (package! acp)
@@ -89,5 +83,8 @@
 
 ;; Misc
 (package! fuzzy-clock)
-
 (package! micromamba)
+
+(package! gptel
+  :recipe (:nonrecursive t)
+  :pin "5c82ff85be0beed57a923935e18b9c4d1a8d0858")
