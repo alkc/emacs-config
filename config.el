@@ -195,33 +195,14 @@
          )
   )
 
-(use-package! gptel
-  :ensure t
-  :bind (("C-c o g g" . gptel)
-         ("C-c o g m" . gptel-menu)
-         ("C-c o g r" . gptel-rewrite)
-         ("C-c o g a" . gptel-add)
-         ("C-c o g p" . gptel-system-prompt)
-         ("C-c o g q" . gptel-context-remove-all))
-
-  :config
-  (setq gptel-api-key (gptel-api-key-from-auth-source))
-  ;; Disable line numbering for gptel-mode
-  (add-hook 'gptel-mode-hook (lambda ()
-                               (line-number-mode -1)
-                               (display-line-numbers-mode -1)))
+(with-eval-after-load 'gptel
+  (setq gptel-backend (gptel-make-openai-oauth "OpenAI-sub"))
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
   (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   )
 
-
-
-(after! gptel
-  (use-package! gptel-quick
-    :config
-    (setq gptel-quick-backend gptel-backend)
-    (setq gptel-quick-model 'gpt-4.1-nano)
-    )
+(with-eval-after-load 'gptel-magit
+  (setq gptel-magit-model "gpt-5.3-codex")
   )
 
 (after! embark
