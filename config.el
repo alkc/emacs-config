@@ -283,12 +283,23 @@
         ))
 
 (after! ispell
-  (setq ispell-program-name "hunspell"
-        ispell-really-hunspell t
-        ispell-dictionary "sv_SE,en_US,pl_PL")
-  (when (fboundp 'ispell-hunspell-add-multi-dic)
-    (ispell-set-spellchecker-params)
-    (ispell-hunspell-add-multi-dic ispell-dictionary)))
+  (let* ((my/ispell-dictionaries '("sv_SE" "en_US" "pl_PL"))
+         (my/ispell-dictionary (mapconcat #'identity my/ispell-dictionaries ",")))
+    (setq ispell-program-name "hunspell"
+          ispell-really-hunspell t
+          ispell-dictionary my/ispell-dictionary)
+    (when (fboundp 'ispell-hunspell-add-multi-dic)
+      (ispell-set-spellchecker-params)
+      (let* ((available-dictionaries (mapcar #'car ispell-hunspell-dict-paths-alist))
+             (installed-dictionaries
+              (delq nil
+                    (mapcar (lambda (dictionary)
+                              (and (member dictionary available-dictionaries)
+                                   dictionary))
+                            my/ispell-dictionaries))))
+        (setq ispell-dictionary (mapconcat #'identity installed-dictionaries ","))
+        (when installed-dictionaries
+          (ispell-hunspell-add-multi-dic ispell-dictionary))))))
 
 (after! flyspell
   (setq flyspell-issue-message-flag nil))
