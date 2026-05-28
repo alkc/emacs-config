@@ -212,7 +212,6 @@
   )
 
 
-
 (use-package! agent-shell
   :config
   (setq agent-shell-openai-authentication
@@ -220,10 +219,6 @@
   :bind
   ("C-c o a" . agent-shell)
   )
-
-;; FIXME This crashes the config:
-;; (setf (alist-get 'python-mode apheleia-mode-alist)
-;;      '(isort black))
 
 ;; Org:
 (defun alkc/soppa ()
@@ -239,12 +234,12 @@
   :config
   (require 'org-habit)
   (setq calendar-week-start-day 1)
-  (setq org-default-notes-file (concat org-directory "soppa.org"))
-  (setq +org-capture-notes-file (concat org-directory "soppa.org"))
-  (setq +org-capture-todo-file (concat org-directory "soppa.org"))
-  (setq +org-capture-calendar-file (concat org-directory "calendar.org"))
-  (setq +org-capture-projects-file (concat org-directory "soppa.org"))
-  (setq org-archive-location "./archive/%s_archive::")
+  (setq org-archive-location  "./archive/%s_archive::")
+  (setq org-default-notes-file     (concat org-directory "soppa.org"    ))
+  (setq +org-capture-notes-file    (concat org-directory "soppa.org"    ))
+  (setq +org-capture-todo-file     (concat org-directory "soppa.org"    ))
+  (setq +org-capture-calendar-file (concat org-directory "calendar.org" ))
+  (setq +org-capture-projects-file (concat org-directory "soppa.org"    ))
   (setq org-capture-templates
         '(("t" "TODO Inbox" entry (file+headline +org-capture-todo-file "Inbox")
            "* TODO %?\n%i" :prepend t)
@@ -262,6 +257,7 @@
            "* %U %?\n%i" :prepend t)
           )
         ))
+
 
 (after! ispell
   (let* ((my/ispell-dictionaries '("sv_SE" "en_US" "pl_PL"))
@@ -282,12 +278,8 @@
         (when installed-dictionaries
           (ispell-hunspell-add-multi-dic ispell-dictionary))))))
 
-(after! flyspell
-  (setq flyspell-issue-message-flag nil))
-
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/.local/SMD-dotfiles/work.el"))
-
 (defun my/split-window-right-and-focus ()
   (interactive)
   (split-window-right)
