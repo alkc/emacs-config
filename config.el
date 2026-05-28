@@ -279,11 +279,13 @@
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/.local/SMD-dotfiles/work.el"))
 (defun my/split-window-right-and-focus ()
+  "Split the selected window to the right and move focus to the new window."
   (interactive)
   (split-window-right)
   (other-window 1))
 
 (defun my/split-window-below-and-focus ()
+  "Split the selected window below and move focus to the new window."
   (interactive)
   (split-window-below)
   (other-window 1))
