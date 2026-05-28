@@ -245,7 +245,7 @@
 ;;      '(isort black))
 
 ;; Org:
-(defun my/soppa ()
+(defun alkc/soppa ()
   "Dive straight into soup"
   (interactive)
   (find-file "~/org/soppa.org"))
