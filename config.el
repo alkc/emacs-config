@@ -293,3 +293,9 @@
 (map!
  "C-x 2" #'my/split-window-below-and-focus
  "C-x 3" #'my/split-window-right-and-focus)
+
+(after! project
+  ;; Move the native project prefix from C-x p to C-x P, leaving C-x p
+  ;; available for the built-in minibuffer switcher again.
+  (define-key ctl-x-map (kbd "P") project-prefix-map)
+  (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
