@@ -294,6 +294,25 @@
  "C-x 2" #'my/split-window-below-and-focus
  "C-x 3" #'my/split-window-right-and-focus)
 
+(defun my/magit-status-other-window ()
+  (interactive)
+  (my/split-window-right-and-focus)
+  (let ((magit-window (selected-window)))
+    (set-window-parameter magit-window 'magit-dedicated t)
+    (magit-status)
+    (let ((magit-buffer (current-buffer)))
+      (add-hook 'kill-buffer-hook
+                (lambda ()
+                  (when (and (window-live-p magit-window)
+                             (eq (window-buffer magit-window) magit-buffer))
+                    (ignore-errors
+                      (delete-window magit-window))))
+                nil t))))
+
+(after! magit
+  (map! "C-x G" #'my/magit-status-other-window)  
+  )
+
 (after! project
   ;; Move the native project prefix from C-x p to C-x P, leaving C-x p
   ;; available for the built-in minibuffer switcher again.
