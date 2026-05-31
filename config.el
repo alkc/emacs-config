@@ -318,3 +318,16 @@
   ;; available for the built-in minibuffer switcher again.
   (define-key ctl-x-map (kbd "P") project-prefix-map)
   (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
+
+(after! avy 
+  (defun avy-action-embark (pt)
+    (unwind-protect
+        (save-excursion
+          (goto-char pt)
+          (embark-act))
+      (select-window
+       (cdr (ring-ref avy-ring 0))))
+    t)
+
+  (setf (alist-get ?. avy-dispatch-alist) 'avy-action-embark)
+  )
