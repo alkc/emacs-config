@@ -181,7 +181,6 @@
 (global-set-key (kbd "M-'") 'consult-imenu)
 
 (use-package! avy
-  :ensure t
   :init
   (define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
   :bind (("C-ä"     . avy-goto-char      )
@@ -193,7 +192,10 @@
          ("M-g e"   . avy-goto-word-0    )
          ("M-g k r" . avy-kill-region    )
          )
-  )
+  :config
+  (setq avy-timeout-seconds 0.8)
+  (setq avy-all-windows t))
+
 
 (with-eval-after-load 'gptel
   (setq gptel-backend (gptel-make-openai-oauth "OpenAI-sub"))
@@ -319,7 +321,7 @@
   (define-key ctl-x-map (kbd "P") project-prefix-map)
   (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
 
-(after! avy 
+(after! avy
   (defun avy-action-embark (pt)
     (unwind-protect
         (save-excursion
@@ -330,4 +332,15 @@
     t)
 
   (setf (alist-get ?. avy-dispatch-alist) 'avy-action-embark)
+  
+  (defun avy-action-helpful (pt)
+    (save-excursion
+      (goto-char pt)
+      (helpful-at-point))
+    (select-window
+     (cdr (ring-ref avy-ring 0)))
+    t)
+
+  (setf (alist-get ?H avy-dispatch-alist) 'avy-action-helpful)
+  
   )
