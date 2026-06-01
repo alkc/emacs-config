@@ -96,7 +96,7 @@
        (eval +overlay)       ; run code, run (also, repls)
        ;;gist                ; interacting with github gists
        llm 
-       lookup                ; navigate your code and its documentation
+       (lookup +dictionary)  ; navigate your code and its documentation
        (lsp +peek)           ; M-x vscode
        (magit +forge)        ; a git porcelain for Emacs
        ;;make                ; run make tasks from Emacs
