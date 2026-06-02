@@ -180,6 +180,13 @@
 ;; Free up C-'
 (global-set-key (kbd "M-'") 'consult-imenu)
 
+(defun alkc/insert-docker-host-ip ()
+  "Insert the default Docker bridge host IP at point."
+  (interactive "*")
+  (insert "172.17.0.1"))
+
+(global-set-key (kbd "C-c i d") #'alkc/insert-docker-host-ip)
+
 (use-package! avy
   :init
   (define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
