@@ -203,7 +203,6 @@
   (setq avy-timeout-seconds 0.8)
   (setq avy-all-windows t))
 
-
 (with-eval-after-load 'gptel
   (setq gptel-backend (gptel-make-openai-oauth "OpenAI-sub"))
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
@@ -327,6 +326,7 @@
   (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
 
 (after! avy
+  
   (defun avy-action-embark (pt)
     (unwind-protect
         (save-excursion
@@ -347,5 +347,5 @@
     t)
 
   (setf (alist-get ?H avy-dispatch-alist) 'avy-action-helpful)
-  
+
   )
