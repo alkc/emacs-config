@@ -54,7 +54,7 @@
 (package! ef-themes)
 
 ;; Magit forge?
-(package! sqlite3) ;; I think magit/forge needs this.
+;; (package! sqlite3) ;; I think magit/forge needs this.
 
 ;; ;; PYTHON
 ;; TODO: Do I still need all these pkgs?
