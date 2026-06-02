@@ -231,8 +231,6 @@
 (use-package! org
   :init
   (remove-hook! 'org-mode-hook #'display-line-numbers-mode)
-  :bind
-  ("C-c o s" . alkc/soppa)
   :config
   (require 'org-habit)
   (setq calendar-week-start-day 1)
