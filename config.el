@@ -326,7 +326,8 @@
   (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
 
 (after! avy
-  
+
+  ;; ACTIONS
   (defun avy-action-embark (pt)
     (unwind-protect
         (save-excursion
@@ -335,8 +336,6 @@
       (select-window
        (cdr (ring-ref avy-ring 0))))
     t)
-
-  (setf (alist-get ?. avy-dispatch-alist) 'avy-action-embark)
   
   (defun avy-action-helpful (pt)
     (save-excursion
@@ -346,6 +345,8 @@
      (cdr (ring-ref avy-ring 0)))
     t)
 
+  ;; AVY KEYMAP
   (setf (alist-get ?H avy-dispatch-alist) 'avy-action-helpful)
+  (setf (alist-get ?. avy-dispatch-alist) 'avy-action-embark)
 
   )
