@@ -350,3 +350,16 @@
   (setf (alist-get ?. avy-dispatch-alist) 'avy-action-embark)
 
   )
+
+(after! projectile
+
+  ;; Disable projectile project detection for remote buffers. Fixes issue where switching remote
+  ;; dirs in tramp took 5-12 seconds as projectile searched dir structure for some project file.
+  (defun my/projectile-track-known-projects-skip-remote-a (orig-fn &rest args)
+    (unless (file-remote-p default-directory)
+      (apply orig-fn args)))
+
+  (advice-add #'projectile-track-known-projects-find-file-hook
+              :around #'my/projectile-track-known-projects-skip-remote-a)
+  )
+
