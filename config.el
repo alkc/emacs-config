@@ -129,6 +129,9 @@
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
 
+(global-unset-key (kbd "M-$"))
+(global-set-key (kbd "C-c s") #'ispell-word)
+
 (use-package! python-mode 
   :hook (python-mode . display-fill-column-indicator-mode))
 
@@ -217,6 +220,12 @@
   (keymap-set embark-general-map "?" #'gptel-quick)
   (keymap-set embark-identifier-map "o" #'xref-find-definitions-other-window)
   (keymap-set embark-file-map "SPC" #'view-file-other-window)
+  (keymap-unset embark-region-map "$")
+  (keymap-unset embark-identifier-map "$")
+  (keymap-unset embark-prose-map "$")
+  (keymap-set embark-region-map "w" #'ispell-region)
+  (keymap-set embark-identifier-map "w" #'ispell-word)
+  (keymap-set embark-prose-map "w" #'ispell-region)
   )
 
 
@@ -362,4 +371,3 @@
   (advice-add #'projectile-track-known-projects-find-file-hook
               :around #'my/projectile-track-known-projects-skip-remote-a)
   )
-
