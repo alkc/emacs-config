@@ -250,6 +250,7 @@
   (setq org-log-done t)
   (setq org-log-refile t)
   (setq org-startup-folded 'fold)
+  (setq org-agenda-include-diary t)
   (setq org-archive-location  "./archive/%s_archive::")
   (setq org-default-notes-file     (concat org-directory "soppa.org"    ))
   (setq +org-capture-notes-file    (concat org-directory "soppa.org"    ))
