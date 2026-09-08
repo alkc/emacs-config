@@ -252,6 +252,8 @@
   (require 'org-habit)
   (setq calendar-week-start-day 1)
   (setq org-hide-emphasis-markers t)
+  (setq org-log-done t)
+  (setq org-log-refile t)
   (setq org-archive-location  "./archive/%s_archive::")
   (setq org-default-notes-file     (concat org-directory "soppa.org"    ))
   (setq +org-capture-notes-file    (concat org-directory "soppa.org"    ))
