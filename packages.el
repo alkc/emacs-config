@@ -71,8 +71,9 @@
 ;; Nextflow-mode
 (package! cl-lib)
 (package! groovy-mode)
-(package! nextflow-mode :recipe (:host github :repo "edmundmiller/nextflow-mode"))
-
+(package! nextflow-mode
+  :recipe (:host github :repo "edmundmiller/nextflow-mode")
+  :pin "f78a679")
 ;; epub reading:
 (package! nov)
 
