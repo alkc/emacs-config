@@ -130,7 +130,7 @@
 (setopt display-fill-column-indicator-column 100)
 
 (global-unset-key (kbd "M-$"))
-(global-set-key (kbd "C-c s") #'ispell-word)
+(global-set-key (kbd "M-å") #'ispell-word)
 
 (use-package! python-mode 
   :hook (python-mode . display-fill-column-indicator-mode))
