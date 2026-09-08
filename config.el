@@ -233,6 +233,8 @@
   :config
   (setq agent-shell-openai-authentication
         (agent-shell-openai-make-authentication :login t))
+  (setq agent-shell-preferred-agent-config
+        (agent-shell-openai-make-codex-config))
   :bind
   ("C-c o a" . agent-shell)
   )
