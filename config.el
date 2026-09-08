@@ -239,11 +239,6 @@
   ("C-c o a" . agent-shell)
   )
 
-;; Org:
-(defun alkc/soppa ()
-  "Dive straight into soup"
-  (interactive)
-  (find-file "~/org/soppa.org"))
 
 (use-package! org
   :init
@@ -289,6 +284,22 @@
   (org-capture nil "j"))
 
 (map! "C-c j" #'alkc/capture-journal)
+
+
+(defun alkc/capture-journal ()
+  "Open a capture buffer using the journal template."
+  (interactive)
+  (org-capture nil "j"))
+
+;; Org:
+(defun alkc/soppa ()
+  "Dive straight into soup"
+  (interactive)
+  (switch-to-buffer (find-file-noselect "~/org/soppa.org")))
+
+
+(map! "C-c N" #'alkc/soppa)
+
 
 (after! ispell
   (let* ((my/ispell-dictionaries '("sv_SE" "en_US" "pl_PL"))
