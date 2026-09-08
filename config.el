@@ -251,6 +251,7 @@
   :config
   (require 'org-habit)
   (setq calendar-week-start-day 1)
+  (setq org-hide-emphasis-markers t)
   (setq org-archive-location  "./archive/%s_archive::")
   (setq org-default-notes-file     (concat org-directory "soppa.org"    ))
   (setq +org-capture-notes-file    (concat org-directory "soppa.org"    ))
@@ -273,14 +274,19 @@
           )
         ))
 
+(use-package! org-appear
+  :init
+  (setq org-appear-delay 0.2)
+  :hook
+  org-mode
+  )
+
 (defun alkc/capture-journal ()
   "Open a capture buffer using the journal template."
   (interactive)
   (org-capture nil "j"))
 
 (map! "C-c j" #'alkc/capture-journal)
-
-
 
 (after! ispell
   (let* ((my/ispell-dictionaries '("sv_SE" "en_US" "pl_PL"))
@@ -371,7 +377,6 @@
   )
 
 (after! projectile
-
   ;; Disable projectile project detection for remote buffers. Fixes issue where switching remote
   ;; dirs in tramp took 5-12 seconds as projectile searched dir structure for some project file.
   (defun my/projectile-track-known-projects-skip-remote-a (orig-fn &rest args)

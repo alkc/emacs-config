@@ -89,3 +89,5 @@
 (package! gptel
   :recipe (:nonrecursive t)
   :pin "5c82ff85be0beed57a923935e18b9c4d1a8d0858")
+
+(package! org-appear)
