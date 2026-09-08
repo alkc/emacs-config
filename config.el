@@ -245,6 +245,13 @@
   (interactive)
   (find-file "~/org/soppa.org"))
 
+(defun alkc/capture-journal ()
+  "Open a capture buffer using the journal template."
+  (interactive)
+  (org-capture nil "j"))
+
+(map! "C-c J" #'alkc/capture-journal)
+
 (use-package! org
   :init
   (remove-hook! 'org-mode-hook #'display-line-numbers-mode)
