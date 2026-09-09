@@ -231,6 +231,8 @@
 
 (use-package! agent-shell
   :config
+  ;; Keep typing q even if the inherited comint map binds it to quit-window.
+  (keymap-set agent-shell-mode-map "q" #'self-insert-command)
   (setq agent-shell-openai-authentication
         (agent-shell-openai-make-authentication :login t))
   (setq agent-shell-preferred-agent-config
