@@ -248,7 +248,7 @@
   (setq calendar-week-start-day 1)
   (setq org-hide-emphasis-markers t)
   (setq org-log-done t)
-  (setq org-log-refile t)
+  (setq org-log-refile 'note)
   (setq org-startup-folded 'fold)
   (setq org-agenda-include-diary t)
   (setq org-archive-location  "./archive/%s_archive::")
