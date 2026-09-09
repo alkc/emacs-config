@@ -285,17 +285,12 @@
   (interactive)
   (org-capture nil "j"))
 
-(map! "C-c j" #'alkc/capture-journal)
-
-
-
-;; Org:
 (defun alkc/soppa ()
   "Dive straight into soup"
   (interactive)
   (switch-to-buffer (find-file-noselect "~/org/soppa.org")))
 
-
+(map! "C-c j" #'alkc/capture-journal)
 (map! "C-c N" #'alkc/soppa)
 
 
