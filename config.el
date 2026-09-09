@@ -276,6 +276,18 @@
           )
         ))
 
+(after! org-agenda
+  (add-to-list 'org-agenda-custom-commands
+               '("n" "Now, today, and other tasks"
+                 ((tags-todo "now"
+                             ((org-agenda-overriding-header "Now")))
+                  (agenda ""
+                          ((org-agenda-span 1)
+                           (org-agenda-start-day "0d")
+                           (org-agenda-overriding-header "Today")))
+                  (tags-todo "-now"
+                             ((org-agenda-overriding-header "Other tasks")))))))
+
 (use-package! org-appear
   :init
   (setq org-appear-delay 0.2)
