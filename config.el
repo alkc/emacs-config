@@ -242,7 +242,8 @@
 
 (use-package! org
   :init
-  (remove-hook! 'org-mode-hook #'display-line-numbers-mode)
+  (add-hook! 'org-mode-hook
+    (display-line-numbers-mode -1))
   :config
   (require 'org-habit)
   (setq calendar-week-start-day 1)
