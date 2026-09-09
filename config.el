@@ -288,10 +288,6 @@
 (map! "C-c j" #'alkc/capture-journal)
 
 
-(defun alkc/capture-journal ()
-  "Open a capture buffer using the journal template."
-  (interactive)
-  (org-capture nil "j"))
 
 ;; Org:
 (defun alkc/soppa ()
