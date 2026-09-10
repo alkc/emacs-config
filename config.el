@@ -259,10 +259,13 @@
   (interactive)
   (org-agenda nil "n"))
 
-(let ((entry (assoc "Open org-agenda" +dashboard-menu-sections)))
+(let ((entry (or (assoc "Now, today, and other tasks" +dashboard-menu-sections)
+                 (assoc "Open org-agenda" +dashboard-menu-sections))))
   (when entry
     (setcar entry "Now, today, and other tasks")
-    (setcdr entry (plist-put (cdr entry) :action #'alkc/org-agenda-now))))
+    (setcdr entry (plist-put (cdr entry) :action #'alkc/org-agenda-now))
+    (setq +dashboard-menu-sections
+          (cons entry (delq entry +dashboard-menu-sections)))))
 (define-key +dashboard-mode-map [remap org-agenda] #'alkc/org-agenda-now)
 
 (after! org-agenda
