@@ -213,7 +213,15 @@
   )
 
 (with-eval-after-load 'gptel-magit
-  (setq gptel-magit-model 'gpt-5.6-luna)
+  (setq gptel-magit-model 'gpt-5.6-luna
+        gptel-magit-commit-prompt
+        "Write a short, clear Git commit message summarizing the staged diff.
+
+- Use a plain subject line, ideally under 60 characters.
+- Do not use Conventional Commits types or scope prefixes such as feat:, chore:, fix(parser):, (feat), or (chore).
+- Capitalize the subject, use the imperative mood, and omit ending punctuation.
+- Add a concise body after a blank line only when useful.
+- Return only the commit message, without Markdown fences or commentary.")
   )
 
 (after! embark
