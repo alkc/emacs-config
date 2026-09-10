@@ -337,6 +337,7 @@
 
 (when (string= (system-name) "RS30211241")
   (load-file "/home/alkc/.local/SMD-dotfiles/work.el"))
+
 (defun my/split-window-right-and-focus ()
   "Split the selected window to the right and move focus to the new window."
   (interactive)
@@ -398,7 +399,6 @@
   ;; AVY KEYMAP
   (setf (alist-get ?H avy-dispatch-alist) 'avy-action-helpful)
   (setf (alist-get ?. avy-dispatch-alist) 'avy-action-embark)
-
   )
 
 (after! projectile
