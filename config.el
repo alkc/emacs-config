@@ -129,9 +129,6 @@
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
 
-(global-unset-key (kbd "M-$"))
-(global-set-key (kbd "M-å") #'ispell-word)
-
 (use-package! python-mode 
   :hook (python-mode . display-fill-column-indicator-mode))
 
@@ -163,11 +160,6 @@
   )
 
 
-;; MIXED KEYBINDS
-;; TODO: rebind:
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
-
 (after! vterm
   (add-to-list 'vterm-environment "EMACS_VTERM=1")
 
@@ -176,19 +168,10 @@
                              ("ssh" "bash -l"))))
 
 
-(global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "C-<tab>") 'next-buffer)
-(global-set-key (kbd "C-<iso-lefttab>") 'previous-buffer)
-
-;; Free up C-'
-(global-set-key (kbd "M-'") 'consult-imenu)
-
 (defun alkc/insert-docker-host-ip ()
   "Insert the default Docker bridge host IP at point."
   (interactive "*")
   (insert "172.17.0.1"))
-
-(global-set-key (kbd "C-c i d") #'alkc/insert-docker-host-ip)
 
 (use-package! avy
   :init
@@ -223,19 +206,6 @@
 - Add a concise body after a blank line only when useful.
 - Return only the commit message, without Markdown fences or commentary.")
   )
-
-(after! embark
-  (keymap-set embark-general-map "?" #'gptel-quick)
-  (keymap-set embark-identifier-map "o" #'xref-find-definitions-other-window)
-  (keymap-set embark-file-map "SPC" #'view-file-other-window)
-  (keymap-unset embark-region-map "$")
-  (keymap-unset embark-identifier-map "$")
-  (keymap-unset embark-prose-map "$")
-  (keymap-set embark-region-map "w" #'ispell-region)
-  (keymap-set embark-identifier-map "w" #'ispell-word)
-  (keymap-set embark-prose-map "w" #'ispell-region)
-  )
-
 
 (use-package! agent-shell
   :config
@@ -374,15 +344,6 @@
                       (delete-window magit-window))))
                 nil t))))
 
-(after! magit
-  (map! "C-x G" #'my/magit-status-other-window)  
-  )
-
-(after! project
-  ;; Move the native project prefix from C-x p to C-x P, leaving C-x p
-  ;; available for the built-in minibuffer switcher again.
-  (define-key ctl-x-map (kbd "P") project-prefix-map)
-  (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
 
 (after! avy
 
@@ -420,9 +381,45 @@
               :around #'my/projectile-track-known-projects-skip-remote-a)
   )
 
+;; Custom keybindings
+;; Package :bind declarations stay with use-package! to preserve autoloading.
+;; Dashboard remapping, agent-shell's typing fix, and Avy dispatch actions
+;; stay with the setup they customize.
+
+(global-unset-key (kbd "M-$"))
+
 (map!
+ "M-å" #'ispell-word
+ "M-n" #'forward-paragraph
+ "M-p" #'backward-paragraph
+ "M-o" #'other-window
+ "C-<tab>" #'next-buffer
+ "C-<iso-lefttab>" #'previous-buffer
+ ;; Free up C-' for Avy.
+ "M-'" #'consult-imenu
+ "C-c i d" #'alkc/insert-docker-host-ip
  "C-x 2" #'my/split-window-below-and-focus
  "C-x 3" #'my/split-window-right-and-focus
  "C-c j" #'alkc/capture-journal
- "C-c N" #'alkc/soppa
- )
+ "C-c N" #'alkc/soppa)
+
+(after! embark
+  (keymap-set embark-general-map "?" #'gptel-quick)
+  (keymap-set embark-identifier-map "o" #'xref-find-definitions-other-window)
+  (keymap-set embark-file-map "SPC" #'view-file-other-window)
+  (keymap-unset embark-region-map "$")
+  (keymap-unset embark-identifier-map "$")
+  (keymap-unset embark-prose-map "$")
+  (keymap-set embark-region-map "w" #'ispell-region)
+  (keymap-set embark-identifier-map "w" #'ispell-word)
+  (keymap-set embark-prose-map "w" #'ispell-region)
+  )
+
+(after! magit
+  (map! "C-x G" #'my/magit-status-other-window))
+
+(after! project
+  ;; Move the native project prefix from C-x p to C-x P, leaving C-x p
+  ;; available for the built-in minibuffer switcher again.
+  (define-key ctl-x-map (kbd "P") project-prefix-map)
+  (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
