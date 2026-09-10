@@ -276,6 +276,17 @@
           )
         ))
 
+(defun alkc/org-agenda-now ()
+  "Open the Now, today, and other tasks agenda."
+  (interactive)
+  (org-agenda nil "n"))
+
+(let ((entry (assoc "Open org-agenda" +dashboard-menu-sections)))
+  (when entry
+    (setcar entry "Now, today, and other tasks")
+    (setcdr entry (plist-put (cdr entry) :action #'alkc/org-agenda-now))))
+(define-key +dashboard-mode-map [remap org-agenda] #'alkc/org-agenda-now)
+
 (after! org-agenda
   (add-to-list 'org-agenda-custom-commands
                '("n" "Now, today, and other tasks"
