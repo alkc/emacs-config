@@ -305,10 +305,6 @@
   (interactive)
   (switch-to-buffer (find-file-noselect "~/org/soppa.org")))
 
-(map! "C-c j" #'alkc/capture-journal)
-(map! "C-c N" #'alkc/soppa)
-
-
 (after! ispell
   (let* ((my/ispell-dictionaries '("sv_SE" "en_US" "pl_PL"))
          (my/ispell-dictionary (mapconcat #'identity my/ispell-dictionaries ",")))
@@ -342,9 +338,6 @@
   (split-window-below)
   (other-window 1))
 
-(map!
- "C-x 2" #'my/split-window-below-and-focus
- "C-x 3" #'my/split-window-right-and-focus)
 
 (defun my/magit-status-other-window ()
   (interactive)
@@ -407,3 +400,10 @@
   (advice-add #'projectile-track-known-projects-find-file-hook
               :around #'my/projectile-track-known-projects-skip-remote-a)
   )
+
+(map!
+ "C-x 2" #'my/split-window-below-and-focus
+ "C-x 3" #'my/split-window-right-and-focus
+ "C-c j" #'alkc/capture-journal
+ "C-c N" #'alkc/soppa
+ )
