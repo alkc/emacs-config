@@ -213,7 +213,7 @@
   )
 
 (with-eval-after-load 'gptel-magit
-  (setq gptel-magit-model 'gpt-5.3-codex)
+  (setq gptel-magit-model 'gpt-5.6-luna)
   )
 
 (after! embark
