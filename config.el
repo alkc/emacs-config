@@ -414,6 +414,7 @@
  "C-x 2" #'my/split-window-below-and-focus
  "C-x 3" #'my/split-window-right-and-focus
  "C-c j" #'alkc/capture-journal
+ "C-c A" #'alkc/org-agenda-now
  "C-c N" #'alkc/soppa)
 
 (after! embark
