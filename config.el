@@ -268,6 +268,13 @@
           (cons entry (delq entry +dashboard-menu-sections)))))
 (define-key +dashboard-mode-map [remap org-agenda] #'alkc/org-agenda-now)
 
+(defun alkc/org-agenda-next-first (a b)
+  "Sort agenda entries A and B with the next tag first."
+  (let ((a-next (member "next" (get-text-property 0 'tags a)))
+        (b-next (member "next" (get-text-property 0 'tags b))))
+    (cond ((and a-next (not b-next)) -1)
+          ((and b-next (not a-next)) 1))))
+
 (after! org-agenda
   (add-to-list 'org-agenda-custom-commands
                '("n" "Now, today, and other tasks"
@@ -278,7 +285,10 @@
                            (org-agenda-start-day "0d")
                            (org-agenda-overriding-header "Today")))
                   (tags-todo "-now"
-                             ((org-agenda-overriding-header "Other tasks")))))))
+                             ((org-agenda-overriding-header "Other tasks")
+                              (org-agenda-cmp-user-defined #'alkc/org-agenda-next-first)
+                              (org-agenda-sorting-strategy
+                               '(user-defined-up priority-down category-keep))))))))
 
 (use-package! org-appear
   :init
