@@ -415,7 +415,8 @@
  "C-x 3" #'my/split-window-right-and-focus
  "C-c j" #'alkc/capture-journal
  "C-c A" #'alkc/org-agenda-now
- "C-c N" #'alkc/soppa)
+ "C-c N" #'alkc/soppa
+ "C-x O" #'+popup/other)
 
 (after! embark
   (keymap-set embark-general-map "?" #'gptel-quick)
