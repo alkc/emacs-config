@@ -189,11 +189,12 @@
   (setq avy-timeout-seconds 0.8)
   (setq avy-all-windows t))
 
-(with-eval-after-load 'gptel
-  (setq gptel-backend (gptel-make-openai-oauth "OpenAI-sub"))
-  (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
-  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
-  )
+(use-package! gptel
+  :config
+  (setq gptel-backend (gptel-make-openai-oauth "OpenAI-sub")
+        gptel-model 'gpt-5.6-luna)
+  (add-hook 'gptel-post-response-functions #'gptel-end-of-response)
+  (add-hook 'gptel-post-stream-hook #'gptel-auto-scroll))
 
 (with-eval-after-load 'gptel-magit
   (setq gptel-magit-model 'gpt-5.6-luna
