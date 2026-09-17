@@ -234,6 +234,7 @@
            "|" "DONE(d)" "NOPE(n@)")))
   (setq org-log-done t)
   (setq org-log-refile 'note)
+  (setq org-log-into-drawer t)
   (setq org-startup-folded 'fold)
   (setq org-agenda-include-diary t)
   (setq org-archive-location  "./archive/%s_archive::")
