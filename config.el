@@ -231,7 +231,7 @@
   (setq org-hide-emphasis-markers t)
   (setq org-todo-keywords
         '((sequence "TODO(t)" "WAIT(w)" "PROG(p)" "NEXT(x)" "IDEA(i)"
-                    "|" "DONE(d)" "NOPE(n@)")))
+           "|" "DONE(d)" "NOPE(n@)")))
   (setq org-log-done t)
   (setq org-log-refile 'note)
   (setq org-startup-folded 'fold)
@@ -239,6 +239,7 @@
   (setq org-archive-location  "./archive/%s_archive::")
   (setq org-agenda-archives-mode t)
   (setq org-default-notes-file     (concat org-directory "soppa.org"    ))
+  ;; ORG-CAPTURE
   (setq +org-capture-notes-file    (concat org-directory "soppa.org"    ))
   (setq +org-capture-todo-file     (concat org-directory "soppa.org"    ))
   (setq +org-capture-projects-file (concat org-directory "soppa.org"    ))
