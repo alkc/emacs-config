@@ -406,6 +406,7 @@
 ;; Dashboard remapping, agent-shell's typing fix, and Avy dispatch actions
 ;; stay with the setup they customize.
 
+;; Unset ispell:
 (global-unset-key (kbd "M-$"))
 
 (map!
