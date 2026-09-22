@@ -231,7 +231,7 @@
   (setq calendar-week-start-day 1)
   (setq org-hide-emphasis-markers t)
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "WAIT(w)" "PROG(p)" "NEXT(x)" "IDEA(i)"
+        '((sequence "TODO(t)" "WAIT(w@)" "PROG(p)" "NEXT(x)" "IDEA(i)"
            "|" "DONE(d)" "NOPE(n@)")))
   (setq org-log-done t)
   (setq org-log-refile 'note)
