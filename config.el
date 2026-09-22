@@ -217,7 +217,8 @@
   (setq agent-shell-preferred-agent-config
         (agent-shell-openai-make-codex-config))
   :bind
-  ("C-c o a" . agent-shell)
+  (("C-c o a" . agent-shell)
+   ("C-x A" . agent-shell-switch-buffer))
   )
 
 
