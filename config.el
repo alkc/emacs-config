@@ -194,7 +194,19 @@
   (setq gptel-backend (gptel-make-openai-oauth "OpenAI-sub")
         gptel-model 'gpt-5.6-luna)
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response)
-  (add-hook 'gptel-post-stream-hook #'gptel-auto-scroll))
+  (add-hook 'gptel-post-stream-hook #'gptel-auto-scroll)
+
+  (defun alkc/gptel-qa (question)
+    "Ask QUESTION in the reusable *QA* gptel session."
+    (interactive (list (read-string "Ask QA: ")))
+    (when (string-blank-p question)
+      (user-error "Question cannot be empty"))
+    (let ((buffer (gptel "*QA*")))
+      (with-current-buffer buffer
+        (goto-char (point-max))
+        (insert question)
+        (gptel-send))
+      (pop-to-buffer buffer))))
 
 (with-eval-after-load 'gptel-magit
   (setq gptel-magit-model 'gpt-5.6-luna
@@ -428,6 +440,7 @@
  ;; Free up C-' for Avy.
  "M-'" #'consult-imenu
  "C-c f a" #'alkc/agent-shell-emacs-config
+ "C-c Q" #'alkc/gptel-qa
  "C-c i d" #'alkc/insert-docker-host-ip
  "C-x 2" #'my/split-window-below-and-focus
  "C-x 3" #'my/split-window-right-and-focus
