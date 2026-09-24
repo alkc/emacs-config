@@ -208,6 +208,13 @@
 - Return only the commit message, without Markdown fences or commentary.")
   )
 
+(defun alkc/agent-shell-emacs-config ()
+  "Open or create an agent shell for the active Doom config directory."
+  (interactive)
+  (let ((default-directory (file-name-as-directory
+                            (expand-file-name doom-user-dir))))
+    (agent-shell)))
+
 (use-package! agent-shell
   :config
   ;; Keep typing q even if the inherited comint map binds it to quit-window.
@@ -420,6 +427,7 @@
  "C-<iso-lefttab>" #'previous-buffer
  ;; Free up C-' for Avy.
  "M-'" #'consult-imenu
+ "C-c f a" #'alkc/agent-shell-emacs-config
  "C-c i d" #'alkc/insert-docker-host-ip
  "C-x 2" #'my/split-window-below-and-focus
  "C-x 3" #'my/split-window-right-and-focus
