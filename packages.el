@@ -56,18 +56,6 @@
 ;; Magit forge?
 ;; (package! sqlite3) ;; I think magit/forge needs this.
 
-;; ;; PYTHON
-;; TODO: Do I still need all these pkgs?
-;; (package! py-autopep8)
-;; (package! blacken)
-;; (package! pip-requirements)
-;; (package! python-pytest)
-;; (package! python-pylint)
-;; (package! live-py-mode)
-;; (package! py-yapf)
-;; (package! flycheck)
-;; (package! jinja2-mode)
-
 ;; Nextflow-mode
 (package! cl-lib)
 (package! groovy-mode)
