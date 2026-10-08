@@ -217,7 +217,9 @@
 - Do not use Conventional Commits types or scope prefixes such as feat:, chore:, fix(parser):, (feat), or (chore).
 - Capitalize the subject, use the imperative mood, and omit ending punctuation.
 - Add a concise body after a blank line only when useful.
-- Return only the commit message, without Markdown fences or commentary.")
+- Return only the commit message, without Markdown fences or commentary.
+- Do Not Capitalize Every Word Like This"
+        )
   )
 
 (defun alkc/agent-shell-emacs-config ()
