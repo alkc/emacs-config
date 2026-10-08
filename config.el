@@ -237,8 +237,12 @@
   (setq agent-shell-preferred-agent-config
         (agent-shell-openai-make-codex-config))
   :bind
-  (("C-c o a" . agent-shell)
-   ("C-x A" . agent-shell-switch-buffer))
+  (
+   ("C-c o a" . agent-shell)
+   ("C-x A" . agent-shell-switch-buffer)
+   ;; This keybind overrides C-c C-s. Stupid.
+   ;; ("C-c C-S" . agent-shell-prompt-steer)
+   )
   )
 
 
