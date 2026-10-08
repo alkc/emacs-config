@@ -258,7 +258,7 @@
         '((sequence "TODO(t)" "WAIT(w@)" "PROG(p)" "NEXT(x)" "IDEA(i)"
            "|" "DONE(d)" "NOPE(n@)")))
   (setq org-log-done t)
-  (setq org-log-refile 'note)
+  (setq org-log-refile 'time)
   (setq org-log-into-drawer t)
   (setq org-startup-folded 'fold)
   (setq org-agenda-include-diary t)
