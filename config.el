@@ -203,6 +203,15 @@
       (user-error "Question cannot be empty"))
     (let ((buffer (gptel "*QA*")))
       (with-current-buffer buffer
+        (setq-local gptel--system-message
+                    "
+- Answer directly in a clear, concise, matter-of-fact style.
+- Lead with the answer and avoid preambles, tangents, and closing pleasantries.
+- Use short paragraphs; number steps only when the user needs to take several actions.
+- If the user sends code without a question, briefly explain what it does and any important behavior or uncertainty.
+- If the user sends only a technical term, define it in a few sentences.
+- Treat other context-free input as a request for a brief explanation. Expand when the user asks for detail."
+                    )
         (goto-char (point-max))
         (insert question)
         (gptel-send))
