@@ -78,3 +78,6 @@
   :recipe (:nonrecursive t))
 
 (package! org-appear)
+
+(package! wizard
+  :recipe (:host github :repo "jamescherti/wizard.el"))
