@@ -468,6 +468,7 @@
   (keymap-set embark-general-map "?" #'gptel-quick)
   (keymap-set embark-identifier-map "o" #'xref-find-definitions-other-window)
   (keymap-set embark-file-map "SPC" #'view-file-other-window)
+  (keymap-set embark-file-map "-" #'embark-dired-jump)
   (keymap-unset embark-region-map "$")
   (keymap-unset embark-identifier-map "$")
   (keymap-unset embark-prose-map "$")
