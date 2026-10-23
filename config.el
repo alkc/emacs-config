@@ -484,3 +484,5 @@
   ;; available for the built-in minibuffer switcher again.
   (define-key ctl-x-map (kbd "P") project-prefix-map)
   (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
+
+(use-package! wizard)
