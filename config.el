@@ -262,6 +262,14 @@
   (add-hook! 'org-mode-hook
     (display-line-numbers-mode -1))
   :config
+  (require 'org-tempo)
+  ;; Org's pcomplete CAPF can fail during Company's idle completion.
+  ;; Keep other completion sources and Org's structure templates available.
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (remove-hook 'completion-at-point-functions
+                           #'pcomplete-completions-at-point t))
+            100)
   (require 'org-habit)
   (setq calendar-week-start-day 1)
   (setq org-hide-emphasis-markers t)
