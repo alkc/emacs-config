@@ -498,3 +498,6 @@
   (define-key ctl-x-map (kbd "p") #'switch-to-minibuffer))
 
 (use-package! wizard)
+;; TODO:  Move to work.el 
+(add-to-list 'auto-mode-alist
+             '("/nallo/CHANGELOG\\.md\\'" . fundamental-mode))
