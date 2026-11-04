@@ -129,6 +129,9 @@
 (setq projectile-project-search-path '("~/projects/" ))
 (setopt display-fill-column-indicator-column 100)
 
+;; Keep nallo changelogs in plain text, regardless of other Markdown files.
+(add-to-list 'auto-mode-alist '("/nallo/CHANGELOG\\.md\\'" . fundamental-mode))
+
 (use-package! python-mode 
   :hook (python-mode . display-fill-column-indicator-mode))
 
