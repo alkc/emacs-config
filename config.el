@@ -135,6 +135,15 @@
 (use-package! python-mode 
   :hook (python-mode . display-fill-column-indicator-mode))
 
+(defun alkc/csv-display-setup ()
+  "Show CSV and TSV records on single, visually aligned lines."
+  (visual-line-mode -1)
+  (setq-local truncate-lines t)
+  (csv-align-mode 1))
+
+(use-package! csv-mode
+  :hook (csv-mode . alkc/csv-display-setup))
+
 ;; NEXTFLOW:
 
 (use-package! nextflow-mode
