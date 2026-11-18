@@ -256,7 +256,9 @@
   (keymap-set agent-shell-mode-map "q" #'self-insert-command)
   (setq agent-shell-openai-authentication
         (agent-shell-openai-make-authentication :login t))
-  (setq agent-shell-openai-default-model-id "gpt-6-sol")
+  (setq agent-shell-openai-default-model-id "gpt-6.2-sol"
+        agent-shell-openai-default-config-options
+        '(("reasoning_effort" . "medium")))
   (setq agent-shell-preferred-agent-config
         (agent-shell-openai-make-codex-config))
   :bind
