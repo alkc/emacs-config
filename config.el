@@ -447,6 +447,15 @@
   )
 
 (after! projectile
+  (defun alkc/projectile-open-project ()
+    "Open the selected project's Git status or directory."
+    (let ((default-directory (projectile-project-root)))
+      (if (locate-dominating-file default-directory ".git")
+          (magit-status default-directory)
+        (dired default-directory))))
+
+  (setq projectile-switch-project-action #'alkc/projectile-open-project)
+
   ;; Disable projectile project detection for remote buffers. Fixes issue where switching remote
   ;; dirs in tramp took 5-12 seconds as projectile searched dir structure for some project file.
   (defun my/projectile-track-known-projects-skip-remote-a (orig-fn &rest args)
