@@ -450,11 +450,21 @@
 
 (after! projectile
   (defun alkc/projectile-open-project ()
-    "Open the selected project's Git status or directory."
-    (let ((default-directory (projectile-project-root)))
+    "Open project status or Dired, with an existing agent shell on the right."
+    (let* ((default-directory (projectile-project-root))
+           ;; Match Agent Shell's default: the most recently used project shell.
+           (shell-buffer (when (fboundp 'agent-shell-project-buffers)
+                           (car (agent-shell-project-buffers default-directory)))))
       (if (locate-dominating-file default-directory ".git")
           (magit-status default-directory)
-        (dired default-directory))))
+        (dired default-directory))
+      (when (buffer-live-p shell-buffer)
+        (let* ((split-width-threshold 0)
+               (right-window (or (window-in-direction 'right)
+                                 (when (window-splittable-p (selected-window) t)
+                                   (split-window-right)))))
+          (when right-window
+            (set-window-buffer right-window shell-buffer))))))
 
   (setq projectile-switch-project-action #'alkc/projectile-open-project)
 
