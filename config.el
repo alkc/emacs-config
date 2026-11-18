@@ -177,7 +177,15 @@
 
   ;; TODO: Sometimes opens non-login shell? W/O sourcing .bashrc + precious aliases
   (setq vterm-tramp-shells '(("docker" "sh")
-                             ("ssh" "bash -l"))))
+                             ("ssh" "bash -l")))
+
+  (defun alkc/vterm-ssh-disconnect ()
+    "Send the OpenSSH disconnect escape at the start of an input line."
+    (interactive)
+    (vterm-send-return)
+    (vterm-send-string "~."))
+
+  (keymap-set vterm-mode-map "C-c C-." #'alkc/vterm-ssh-disconnect))
 
 
 (defun alkc/insert-docker-host-ip ()
