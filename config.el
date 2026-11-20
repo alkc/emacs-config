@@ -136,10 +136,12 @@
   :hook (python-mode . display-fill-column-indicator-mode))
 
 (defun alkc/csv-display-setup ()
-  "Show CSV and TSV records on single, visually aligned lines."
+  "Align CSV and TSV records and keep the first row visible."
   (visual-line-mode -1)
   (setq-local truncate-lines t)
-  (csv-align-mode 1))
+  (csv-align-mode 1)
+  (unless (bound-and-true-p csv--header-line)
+    (csv-header-line)))
 
 (use-package! csv-mode
   :hook (csv-mode . alkc/csv-display-setup))
